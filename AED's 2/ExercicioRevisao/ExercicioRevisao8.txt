@@ -1,0 +1,12 @@
+Loop infinito. Importante dizer que as variaveis tem diferentes tamanhos.
+O valor máximo para byte é 127 e para short é 32,767. O valor máximo para int é 2,147,483,647 e para long é 9,223,372,036,854,775,807.
+
+Saída = 0 0 0 0 
+        1 1 1 1 
+        2 2 2 2 
+        3 3 3 3 
+        4 4 4 4
+            .
+            .
+            .
+        

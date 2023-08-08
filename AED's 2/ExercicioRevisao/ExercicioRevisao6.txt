@@ -1,0 +1,50 @@
+boolean isConsoante(String s, int n) {
+    boolean resp = true;
+    if(n < s.length()) {
+        char c = Character.toUpperCase(s.charAt(n));
+        if((c >= 'A' && c <= 'Z') && c == 'A' || c == 'E' || c == 'O' || c == 'I' || c == 'U'); {
+            resp = false;
+        }
+        else {
+            resp = isConsoante(s, n + 1);
+        }
+    }
+    return resp;
+}
+
+
+boolean isConsoante(String s, int i) {
+    boolean resp = true;
+    if (i < s.length()) {
+        if (!isConsoante(s.charAt(i))) {
+            resp = false;
+        } else {
+            resp = isConsoante(s, i + 1);
+        }
+    } else {
+        resp = true;
+    }
+    return resp;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

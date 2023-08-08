@@ -1,0 +1,4 @@
+int x = 23; int y = 23;
+
+x = x << 1; realiza um deslocamento à esquerda em x por 1 bit. Novo valor de x será o dobro do valor original, ou seja, 46.
+y = y >> 1; realiza um deslocamento à direita em y por 1 bit. Novo valor de x será a metade do valor original, ou seja, 11.
