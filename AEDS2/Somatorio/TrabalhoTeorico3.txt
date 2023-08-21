@@ -1,0 +1,121 @@
+TRABALHO TEORICO 3
+João Madeira Carneiro Braga de Freitas
+800854
+
+INTRODUÇÃO: 
+
+Exercicio Resolvido 1:
+    Resposta: 
+                int somatorio(int n){
+                    int soma = 0;
+                    for(int i = 1; i <= n; i++){
+                        soma += i;
+                    }
+                    return soma;
+                }
+
+Exercicio Resolvido 2:
+    Resposta: c(i) = n - (i + 1);
+
+Exercicio Resolvido 3:
+    a) 1 + 4 + 9 + 16 + 25 = 55;
+    b) 3 + 6 + 9 + 12 + 15 = 45;
+    c) 1 - 1 - 3 - 5 - 7 = -15;
+    d) 2 + 4 + 6 + 8 + 10 + 5x = 30 + 5x;
+    e) 6 + 12 + 12 = 30;
+    f) 40j - 30;
+
+Exercicio Resolvido 4:
+    Resposta: Sim, pois quando i é igual a 0 ou 1 ou 5 o somatorio é igual a 0. Logo apenas quando o i é igual a 2, 3 e 4 que somamos. Então os dois somatorios são iguais.
+
+Exercicio Resolvido 5:
+    Resposta: Letra C
+
+
+MANIPULAÇÃO DE SOMAS
+
+Exercicio Resolvido 1:
+    a) V - se k = 0, soma = 0.
+    b) F - não coloca o 3 + somatorio p. E sim somatorio 3 + somatorio p.
+    c) V - 3 é uma constante logo pode simplificar o somatorio. A constante passa para fora do somatorio multiplicando ele.
+    d) F -
+    e) V - Somatorio 3 + Somatorio t.
+
+Exercicio Resolvido 2:
+    Resposta: S =  B1 + B2 + E(Ai + Bi);
+
+Exercicio Resolvido 3:
+    Resposta: (3 + 5 + 7 + 9 + 11) == (11 + 9 + 7 + 5 + 3)
+
+Exercicio Resolvido 4:
+    Resposta: ((2a + b*n)(n+1))/2;
+
+Exercicio Resolvido 5:
+    Resposta: (n(n+1))/2;
+
+Exercicio Resolvido 6:
+    Resposta: 
+                int somatorio(int n) {
+                    return (n*(n+1)/2);
+                }
+
+Exercicio Resolvido 7:
+    Resposta:
+                E(n) - E(i) - E(1)
+                n(n - 1) - E(i) - (n-1)
+                n(n - 1) - (n-2(n-1))/2 - (n-1)
+                (n^2)/2 - n/2
+                0(n) = n^2
+
+Exercicio Resolvido 8:
+    a) V - Os dois somatórios são iguais, pois não faz diferença o termo inicial ser 0 já que é somatório do próprio termo.
+    b) V - Os dois somatórios são diferentes, porque não se pode afirmar que o a(0) = 0.
+    c) V - Os dois somatórios são iguais. O resultado dos dois somatorios = (a1 + a2 + a3 + a4 + a5 ... + an).
+
+Exercicio Resolvido 9:
+    Resposta: E(1 até n)Ai + Am.
+
+Exercicio Resolvido 10:
+    Resposta: E(1 até n)Ai - A(m-1) - A (m-2).
+
+Exercicio Resolvido 11:
+    Resposta: S(n) = (a - a * x^(n-1))/2
+
+Exercicio Resolvido 12:
+    Resposta: S(n) = (n-1)*2^n+1 + 2
+
+
+SOMATORIOS METODOS
+
+Exercicio Resolvido 01:
+    Resposta: Passo 1: (0(0+1)(2*0+1))/6 = 0 (verdadeiro);Passo 2:Sn = (2n^3 + 3n^2 + n)/6 (verdadeiro)
+
+Exercicio Resolvido 02:
+    Resposta:   Formula fechada: (n^2 + 7n + 6)/2
+                Passo 1: (0^2 + 7*0 + 6) / 2 = 3 (verdadeiro);Passo 2: Sn = (n^2 + 7n + 6)/2 (verdadeiro)
+
+Exercicio Resolvido 03:
+    Resposta:   Formula fechada: 2n^2 + 3n
+                Passo 1: 2*1^2 + 3*1 = 5 (verdadeiro);Passo 2: Sn = 2n^2 + 3n (verdadeiro)
+
+Exercicio Resolvido 04:
+    Resposta:   Formula fechada: 10n^2 + 10n
+                Passo 1: 10*1^2 + 10*1 = 20 (verdadeiro); Passo 2: Sn = 10n^2 + 10n(verdadeiro)
+
+Exercicio Resolvido 05:
+    Resposta:   Passo 1: (0-1)*2^0+1 + 2 = 0 (verdadeiro); Passo 2: Sn = (n-1)*2^n+1 + 2 (verdadeiro)
+
+Exercicio Resolvido 07:
+    Resposta: Sn = (n(n+1)(2n+1))/6.
+
+
+Exercicio 1:
+    Resposta:
+                int somatorioPA(double a, double b, int n) {
+                    return ((2a + bn)*(n+1))/2;
+                }
+
+Exercicio 2:
+    Resposta: Comparações: Melhor Caso: C(n) = (n-1); Pior caso: C(n) = (n^2 - n)/2
+              Movimentações: M(n) = C(n) + 1;  
+
