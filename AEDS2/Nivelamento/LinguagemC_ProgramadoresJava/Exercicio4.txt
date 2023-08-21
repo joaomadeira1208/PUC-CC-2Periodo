@@ -1,0 +1,2 @@
+a: [?, ?, ?, ?, ?, 100, ?, ?, ?, ?]
+b: Apontando para um novo array alocado dinamicamente com b[7] = 100

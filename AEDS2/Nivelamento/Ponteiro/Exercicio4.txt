@@ -1,0 +1,3 @@
+criou um objeto c do tipo cliente.
+alocando memoria e criando um objeto do tipo cliente
+aponta o ponteiro c para o objeto criado

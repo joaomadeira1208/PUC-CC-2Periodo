@@ -1,0 +1,9 @@
+c:
+  codigo: 7  (alterado através de p2)
+  salario: ?
+
+p: Apontando para um novo Cliente alocado dinamicamente
+  codigo: 6
+  salario: ?
+
+p2: Apontando para c

@@ -1,0 +1,17 @@
+Endereço de Memória    |    Conteúdo
+-------------------------------
+0x0000                    |    M[0][0] (linha 0, coluna 0) = 0.0
+0x0008                    |    M[0][1] (linha 0, coluna 1) = 0.0
+0x0010                    |    M[0][2] (linha 0, coluna 2) = 0.0
+0x0018                    |    M[1][0] (linha 1, coluna 0) = 0.0
+0x0020                    |    M[1][1] (linha 1, coluna 1) = 0.0
+0x0028                    |    M[1][2] (linha 1, coluna 2) = 0.0
+0x0030                    |    M[2][0] (linha 2, coluna 0) = 0.0
+0x0038                    |    M[2][1] (linha 2, coluna 1) = 0.0
+0x0040                    |    M[2][2] (linha 2, coluna 2) = 0.0
+0x0048                    |    p (aponta para M[0][0])
+
+Após o loop, o conteúdo da matriz será:
+M = {{0.0, 0.0, 0.0},
+     {0.0, 0.0, 0.0},
+     {0.0, 0.0, 0.0}}

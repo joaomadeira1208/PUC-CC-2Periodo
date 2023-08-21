@@ -1,0 +1,27 @@
+
+int *x1;    // Declara um ponteiro para int chamado x1
+int x2;     // Declara uma variável int chamada x2
+int *x3;    // Declara um ponteiro para int chamado x3
+
+x1 = (int*) malloc(sizeof(int));  // Aloca memória para um int e atribui o endereço a x1
+
+*x1 = 20;   // Atribui o valor 20 à localização de memória apontada por x1
+
+x2 = *x1;   // Atribui o valor apontado por x1 (20) a x2
+
+*x3 = x2 * *x1;  // Atribui o resultado da multiplicação de x2 (20) e *x1 (20) a x3
+// No entanto, essa instrução causará um erro, pois x3 não foi inicializado.
+
+x3 = &x2;   // Atribui o endereço de x2 a x3
+
+x2 = 15;    // Atribui o valor 15 a x2
+
+x2 = 13 & 3;  // Atribui o resultado da operação bitwise AND entre 13 (1101 em binário) e 3 (0011 em binário) a x2, ou seja, 1
+
+x2 = 13 | 3;  // Atribui o resultado da operação bitwise OR entre 13 (1101 em binário) e 3 (0011 em binário) a x2, ou seja, 15
+
+x2 = 13 >> 1; // Desloca 13 (1101 em binário) 1 posição para a direita, resultando em 6 (0110 em binário)
+
+x2 = 13 << 1; // Desloca 13 (1101 em binário) 1 posição para a esquerda, resultando em 26 (11010 em binário)
+
+

@@ -1,0 +1,48 @@
+----------------------------
+Passo 1:
+Exercícioint *x1;    // Declara um ponteiro para int chamado x1
+int x2;             // Declara uma variável int chamada x2
+int *x3;            // Declara um ponteiro para int chamado x3
+
+x1 = (int *) malloc (sizeof(int));  // Aloca memória para um int e atribui o endereço a x1
+
+Passo 2:
+printf("x1(%p)(%i)(%p) x2(%i)(%p) x3(%p)(%i)(%p)", x1, *x1, &x1, x2, &x2, x3, *x3, &x3);
+// Imprime os valores e endereços das variáveis, mas como x2 e x3 não foram inicializados, seus valores são indefinidos.
+
+Passo 3:
+*x1 = 20;  // Atribui o valor 20 à localização de memória apontada por x1
+
+Passo 4:
+printf("x1(%p)(%i)(%p) x2(%i)(%p) x3(%p)(%i)(%p)", x1, *x1, &x1, x2, &x2, x3, *x3, &x3);
+// Agora x1 tem valor 20, mas x2 e x3 ainda têm valores indefinidos.
+
+Passo 5:
+x2 = *x1;  // Atribui o valor apontado por x1 (20) a x2
+
+Passo 6:
+printf("x1(%p)(%i)(%p) x2(%i)(%p) x3(%p)(%i)(%p)", x1, *x1, &x1, x2, &x2, x3, *x3, &x3);
+// x1 tem valor 20, x2 também tem valor 20, x3 ainda não foi inicializado.
+
+Passo 7:
+*x3 = x2 * *x1;  // Atribui o resultado da multiplicação de x2 e *x1 (20) a x3
+
+Passo 8:
+printf("x1(%p)(%i)(%p) x2(%i)(%p) x3(%p)(%i)(%p)", x1, *x1, &x1, x2, &x2, x3, *x3, &x3);
+// x1 tem valor 20, x2 tem valor 20, x3 agora tem valor 400 (20 * 20).
+
+Passo 9:
+x3 = &x2;  // Atribui o endereço de x2 a x3
+
+Passo 10:
+printf("x1(%p)(%i)(%p) x2(%i)(%p) x3(%p)(%i)(%p)", x1, *x1, &x1, x2, &x2, x3, *x3, &x3);
+// x1 tem valor 20, x2 tem valor 20, x3 aponta para o endereço de x2.
+
+Passo 11:
+x2 = 15;  // Atribui o valor 15 a x2
+
+Passo 12:
+printf("x1(%p)(%i)(%p) x2(%i)(%p) x3(%p)(%i)(%p)", x1, *x1, &x1, x2, &x2, x3, *x3, &x3);
+// x1 tem valor 20, x2 tem valor 15, x3 aponta para o endereço de x2.
+
+----------------------------

@@ -1,0 +1,1 @@
+pois ele faz uma recursividade chamando o 2 1 0, depois temos que voltar para o funcao inicial, fazendo o print no final de forma contraria, 0 1 2.
