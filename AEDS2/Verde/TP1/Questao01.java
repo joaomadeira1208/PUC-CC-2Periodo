@@ -1,4 +1,3 @@
-import mypackage.MyIO;
 
 public class Questao01 {
     public static boolean palindromo(String str) {
