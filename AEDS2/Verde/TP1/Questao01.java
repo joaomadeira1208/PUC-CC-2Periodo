@@ -22,10 +22,10 @@ public class Questao01 {
             if(isPalindromo) {
                 MyIO.println("SIM");
             }
-            else if (str!= "FIM") {
+            else if (!str.equals("FIM")) {
                 MyIO.println("NAO");
             }
-        }while(str != "FIM");
+        }while(!str.equals("FIM"));
     }
 
 }
