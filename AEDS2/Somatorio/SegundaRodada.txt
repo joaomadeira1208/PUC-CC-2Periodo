@@ -1,0 +1,158 @@
+INTRODUÇÃO AOS SOMATÓRIOS
+    
+    Motivação:
+        - Levantamento de custo (e.g., tempo e memória) de algoritmos
+        - Custo de um algoritmo é a soma dos custos das suas operações
+    
+    Notação: Σ(i = m até n) (a(i))
+        m = limite inferior
+        n = limite superior
+        a(i) = termo individual do somatório / somando
+
+    Exercicio Resolvido 03:
+        a) Σ(n = 1 até 5) (n^2) = 1 + 4 + 9 + 16 + 25 = 55
+        b) Σ(i = 1 até 5) (3i) = 3 + 6 + 9 + 12 + 15 = 45
+        c) Σ(i = 1 até 5) (3 - 2i) = 1 - 1 - 3 - 5 - 7 = -15
+        d) Σ(i = 1 até 5) (2i + x) = 2 + x + 4 + x + 6 + x + 8 + x + 10 + x = 30 + 5x
+        e) Σ(i = 0 até 5) (i*(i-1)*(5-i)) = 0 + 0 + 6 + 12 + 12 + 0 = 30
+        f) Σ(m = 1 até 5) (8j - 2m) = (8j - 2) + (8j - 4) + (8j - 6) + (8j - 8) + (8j -10) = 40j - 30
+
+    Exercicio Resolvido 04:
+        Podemos afirmar que  Σ(i = 0 até 5) (i*(i-1)*(5-i)) = Σ(i = 2 até 4) (i*(i-1)*(5-i))
+            Σ(i = 0 até 5) (i*(i-1)*(5-i)) = 0 + 0 + 6 + 12 + 12 + 0 = 30
+            Σ(i = 2 até 4) (i*(i-1)*(5-i)) = 6 + 12 + 12 = 30
+            Sim, podemos afirmar que os dois somatórios são iguais, pois os termos a(0), a(1) e a(5) são iguais a 0. O resultado dos dois somatórios são (a(2) + a(3) + a(4)).
+
+    Exercicio Resolvido 05:
+        a) Σ(i = 0 até 5) (i^2 + 2i + 4) = 4 + 7 + 12 + 19 + 28 + 39
+        b) Σ(i = 0 até 5) ((3i + 2)^2) = 4 + 25 + 64 + 121 + 196 + 289
+        c) Σ(i = 0 até 5) ((i + 2)^2) = 4 + 9 + 16 + 25 + 36 + 49 (Alternativa marcada)
+        
+
+AS REGRAS BÁSICAS DA MANIPULAÇÃO DE SOMAS
+
+    Distributividade:
+        - Permite mover constantes para dentro ou fora de um somatório
+             Σ(i pertence a I) (C * a(i)) =   C * Σ(i pertence a I) (a(i))
+             c * a(1) + c * a(2) = c*(a(1) + a(2))
+        - Também se aplica a divisão
+    
+    Asocciatividade:
+        - Permite quebrar um somatório em partes ou unificá-las em um somatório
+            Σ(i pertence a I) (a(i) + b(i)) = Σ(i pertence a I) (a(i)) + Σ(i pertence a I) (b(i))
+        - Também se aplica a subtração
+    
+    Comutatividade:
+        - Permite colocar os termos em qualquer ordem
+            Σ(i pertence a I) (a(i)) = Σ(p(i) pertence a I) (p(i))
+            a(0) + a(1) + a(2) = a(2) + a(0) + a(1)
+    
+
+    Exercicio Resolvido 01:
+        a) Σ(k = 0 até 200) (k^3) = Σ(k = 1 até 200) (k^3) 
+            Verdadeiro, pois quando o k = 0 o somando é igual a 0.
+        b) Falso, Σ(p = 0 até 1000 ) (3 + p) = Σ(p = 0 até 1000) (3) + Σ(p = 0 até 1000) (p)
+        c)  Verdadeiro, pois 3 é uma constante que está multiplicando o termo, ou seja, é igual a essa constante multiplicar o somatório com o somando ser apenas o termo.
+        d)  Falso, pois o o somatório nao deve ser multiplicado por ele mesmo p vezes e sim multiplicado por k (p - 1 vezes).
+        e)  Verdadeiro, Σ(t = 8 até 32) (3 + t) = Σ(t = 8 até 32) (3) + Σ(t = 8 até 32) (t) = 75 + Σ(t = 8 até 32) (t)
+    
+    Exercicio Resolvido 02:
+        S(n) = Σ (i = 3 até n) (a(i)) + Σ (i = 1 até n) (b(i)) = Σ (i = 3 até n) (a(i)) + Σ (i = 3 até n) (b(i)) + b(1) + b(2) = Σ (i = 3 até n) (a(i) + b(i)) + b(1) + b(2)
+        S(n) = Σ (i = 3 até n) (a(i) + b(i)) + b(1) + b(2)
+    
+    Exercicio Resolvido 03:
+        Σ(i = 0 até 4) (3 + 2i) = Σ(i = 0 até 4) (3 + 2(4 - i))
+        3 * Σ(i = 0 até 4) (1) + Σ(i = 0 até 4) (2i) = 3 * Σ(i = 0 até 4) (1) +  2 * Σ(i = 0 até 4) (4 - i)
+        Σ(i = 0 até 4) (2i) = 2 * Σ(i = 0 até 4) (4 - i)
+        (0 + 2 + 4 + 6 + 8) = (8 + 6 + 4 + 2 + 0)
+
+    Exercicio Resolvido 04:
+        S(n) = Σ(i = 0 até n) (a + b * i)
+        S(n) = Σ(i = 0 até n) (a + b * (n - i)) = Σ(i = 0 até n) (a + bn - bi)
+        2S(n) = Σ(i = 0 até n) (a + bi) + Σ(i = 0 até n) (a + bn - bi)
+        2S(n) = Σ(i = 0 até n) (2a + bn)
+        2S(n) = (2a + bn) * Σ(i = 0 até n) (1) = (2a + bn) (n + 1)
+        S(n) = ((2a + bn) * Σ(i = 0 até n) (1) = (2a + bn) (n + 1)) / 2
+    
+    Exercicio Resolvido 05:
+        a = 0; b = 1
+        S(n) = ((2a + bn) (n + 1)) / 2
+        S(n) = (n * (n + 1) ) / 2
+    
+    Exercicio Resolvido 06:
+        int somatorio(int n) {
+            return (n * (n + 1)) / 2
+        }
+    
+    Exercicio Resolvido 07:
+        Σ(i = 0 até n - 2) (n - i - 1) = Σ(i = 0 até n - 2) (n) - Σ(i = 0 até n - 2) (i) - Σ(i = 0 até n - 2) (1)
+        S(n) = n(n - 1) - ((n - 2) (n - 1))/2 - (n - 1)
+        S(n) = n^2/2 - n/2 = Θ(n^2)
+    
+    Exercicio Resolvido 08:
+        a) Os dois somatórios são iguais, pois quando i = 0 o somando também é 0. Logo, não tem diferença entre começar no 0 e no 1.
+        b) Os dois somatórios são diferentes, pois não podemos assumir que o termo a(0) = 0.
+        c) Os dois somatórios são iguais, pois o primeiro somatório percorre de i = 1 até n, já o segundo percorre de i = 0 até n - 1. Portanto, os somandos serão somados n vezes nos dois somatórios. E como no primeiro somatório o somando é igual a a(i), e no segundo igual a a(i+1), podemos concluir que o somando sempre será igual já que no primeiro o limite inferior = 1 e no segundo = 0.
+            O resultado dos dois somatórios = (a(1) + a(2) + a(3) + ... + a(n))
+    
+    
+AS PROPRIEDADES DA MANIPULAÇÃO DE SOMAS
+
+    P1 - Combinação de conjuntos
+        - Combina conjuntos de índices diferentes. No caso, se I e I' são dois conjuntos quaisquer de inteiros, então:
+            Σ(i pertence a I) (a(i)) + Σ(i pertence a I') (a(i)) = Σ(i ∈ I ∪ I') (a(i)) + Σ(i ∈ I ∩ I') (a(i))  
+
+    Exercicio Resolvido 09:
+        Σ(i = 1 até m) (a(i)) + Σ(i = m até n) (a(i)) = Σ(i = 1 até n) (a(i)) + a(m)
+    
+    Exercicio Resolvido 10:
+        Σ(i = 1 até m-3) (a(i)) + Σ(i = m até n) (a(i)) = Σ(i = 1 até n) (a(i)) - a(m-2) - a(m-1)
+    
+
+    P2 - Base para a Pertubação
+        - Dada uma soma genérica qualquer S(n) = Σ(i = 0 até n) (a(i)), temos que:
+            S(n + 1) = a(0) + a(1) + ... + a(n + 1)
+        
+        - Podemos reescrever S(n + 1) de duas formas:
+            Primeira forma: S(n + 1) = S(n) + a(n + 1)
+            Segunda forma: S(n + 1) = a(0) + Σ(i = 0 até n) (a(i + 1))
+        
+        - Resumindo, temos duas igualdades:
+            S(n) + a(n + 1) = a(0) + Σ(i = 0 até n) (a(i + 1))
+
+            Na prática, para pertubar resolveremos a igualdade acima. Isso, frequentemente, resulta na equação fechada para S(n)
+        
+    Exercicio Resolvido 11:
+        S(n) = Σ(i = 0 até n) (a * x^i)
+        
+        S(n) + a(n + 1) = a(0) + Σ(i = 0 até n) (a(i + 1))
+        S(n) + a * x^(n+1) = a + Σ(i = 0 até n) (a * x^(i + 1))
+        S(n) + a * x^(n+1) = a + x * Σ(i = 0 até n) (a * x^i)
+        S(n) + a * x^(n+1) = a + x * S(n)
+        S(n) - (x * S(n)) = a - a * x^(n+1)
+        S(n)(1 - x) = a(1 - x^(n+1))
+        S(n) = (a(1 - x^(n+1))) / (1 - x), para x diferente de 1.
+    
+    Exercicio Resolvido 12:
+        S(n) = Σ(i = 0 até n) (i * 2^i)
+
+        S(n) + a(n + 1) = a(0) + Σ(i = 0 até n) ( (i+1) * (2^i+1) )
+        S(n) + (n+1) * (2^n+1)
+        S(n) = 2^n+1 * (n -1) + 2
+    
+
+
+
+    
+
+
+
+
+        
+        
+
+
+
+
+
+
