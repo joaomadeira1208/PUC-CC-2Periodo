@@ -1,0 +1,55 @@
+TRABALHO TEÓRICO 3
+
+    Exercicio Resolvido 1:
+        a) 2^10 = 1024
+        b) lg(1024) = 10
+        c) lg(17) = lg(16) < lg(17) < lg(32) = 4 < lg(17) < 5
+        d) Teto(log(17)) = 5
+        e) Piso(log(17)) = 4
+    
+    Exercicio Resolvido 3:
+        Resposta: Melhor caso: 3 subtrações, Θ(1); Pior caso: 5 subtrações, Θ(1)
+    
+    Exercicio Resolvido 4:
+        Resposta: 2n subtrações, Θ(n).
+    
+    Exercicio Resolvido 5:
+        Resposta: 3n^2 subtrações, Θ(n^2).
+    
+    Exercicio Resolvido 6:
+        Resposta: Piso (log(n)) + 1, Θ(log(n))
+    
+    Exercicio Resolvido 7:
+        Resposta: Melhor caso: t(n) = 1, Θ(1); Pior caso: t(n) = n, Θ(n)
+        Caso ótimo, porque temos que testar todos os elementos para garantir nossa resposta.
+
+    Exercicio Resolvido 8:
+        Resposta: O aluno deve executar uma pesquisa sequencial.
+        Pesquisa sequencial: Θ(n).
+        Ordenar array: Θ(n * lg n)
+        Pesquisa binaria: Θ(lg n ).
+    
+    Exercicio Resolvido 9:
+        a) Falsa
+        b) Verdadeiro
+        c) Verdadeiro
+        d) Verdadeiro
+        e) Verdadeiro
+        f) Falso
+        g) Falso
+        h) Verdadeiro 
+        i) Falso
+    
+    Exercicio Resolvido 10:
+        Resposta:  𝚯(n^3), pois como o algoritmo de seleção está dentro de um laço de repetição que repete n vezes. Podemos concluir que temos n *  𝚯(n^2) comparações que é igual a 𝚯(n * n^2).
+    
+    Exercicio Resolvido 11:
+        a) 𝚯(n^8)
+        b) 𝚯(n^8)
+        c) 𝚯(n^3 * lg(n))
+        d) 𝚯(n^8)
+        e) 𝚯(n^4 * log^3 n)
+        f) 𝚯(n^2)
+
+        
+

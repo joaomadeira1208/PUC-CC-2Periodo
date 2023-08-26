@@ -1,4 +1,3 @@
-
 public class Questao01 {
     public static boolean palindromo(String str) {
         int j = str.length() - 1;
@@ -12,7 +11,6 @@ public class Questao01 {
         }
         return isPalindromo;
     }
-
     public static void main(String[] args) {
         String str;
         do {
