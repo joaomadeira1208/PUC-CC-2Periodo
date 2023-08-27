@@ -1,4 +1,6 @@
-TRABALHO TEÓRICO 3
+TRABALHO TEÓRICO 4
+Nome: João Madeira Carneiro Braga de Freitas
+Matricula: 800854
 
     Exercicio Resolvido 1:
         a) 2^10 = 1024
@@ -186,7 +188,7 @@ TRABALHO TEÓRICO 3
         Pesquisas sequenciais: n * 𝚯(n) = 𝚯(n^2);
         Pesquisa binaria: 𝚯(n * log n) + n * 𝚯(log n) = 𝚯(n * log n);
         Logo, nesse caso a pesquisa binaria será mais eficiente.
-        
+
 
 
 
