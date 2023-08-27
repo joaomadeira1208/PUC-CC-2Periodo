@@ -50,6 +50,145 @@ TRABALHO TEÓRICO 3
         d) 𝚯(n^8)
         e) 𝚯(n^4 * log^3 n)
         f) 𝚯(n^2)
+    
+    Exercicio Resolvido 12:
+        a) m = 5 e c = 5
+        b) m = 5 e c = 1
+        c) Não existe par(c e m ) que satisfaz a expressão n >= m, |3n^2 + 5n + 1| <= c * |n|. Aumentando o valor de c, apenas retardamos o momento em que a curva linear é superada pela quadratica.
+    
+    Exercicio Resolvido 13:
+        Resposta: Melhor caso: Função = f(n) = 1 + (n - 2), Ordem de complexidade = 𝚯(n), O(n) e Ω(n); Pior caso: Função de complexidade: f(n) = 1 + 2(n - 2), Ordem de complexidade: 𝚯(n), O(n) e Ω(n)
+
+    Exercicio Resolvido 14:
+        Resposta: Melhor caso: Função = f(n) = 2, Ordem de complexidade = 𝚯(1), O(1) e Ω(1); Pior caso: Função de complexidade: f(n) = 2 + (n - 2), Ordem de complexidade: 𝚯(n), O(n) e Ω(n)
+    
+    Exercicio Resolvido 15:
+        Resposta: Melhor caso: Função = f(n) = n + 1, Ordem de complexidade = 𝚯(n), O(n) e Ω(n); Pior caso: Função de complexidade: f(n) = n + 2, Ordem de complexidade: 𝚯(n), O(n) e Ω(n)
+
+    Exercicio Resolvido 16:
+        Resposta: Todos os casos: Função = f(n) = 2n^2 + n, Ordem = 𝚯(n^2), O(n^2) e Ω(n^2).
+    
+    Exercicio Resolvido 17:
+        Resposta: Todos os casos: Função = f(n) = (log n + 1) * n = n * log n + n, Ordem = 𝚯(n * log n), O(n * log n) e Ω(n * log n)
+    
+    Exercicio Resolvido 18:
+        a) linear
+        b) Constante
+        c) linear
+        d) Polinomial
+        e) Exponencial
+        f) Polinomial
+        g) Constante
+        h) Exponencial
+    
+    Exercicio Resolvido 19:
+        Resposta: f6(n) = 1, f2(n) = n, f1(n) = n^2, f5(n) = n^3, f4(n) = (3/2)^n, f^3(n) = 2^n
+    
+    Exercicio Resolvido 20:
+        Resposta: f6(n) = 64, f3(n) = log8(n), f2(n) = log n, f9(n) = 4n, f1(n) = n * log6(n), f5(n) = n * log n, f4(n) = 8n^2, f7(n) = 6n^3, f8(n) = 8^2n
+    
+    Exercicio Resolvido 21:
+        a) n + 30 = O(3n -1)
+        b) n^2 + 2n - 10 = O(n^2 + 3n)
+        c)lg(n) = O(lg(2n))
+        d)n^3 + 3n = O(n^4)
+    
+
+    Exercicio 1:
+        void maxMin() {
+            int max = array[0];
+            int min = array[0];
+            for(int i = 1; i < n; i++) {
+                if(max < array[i]) {
+                    max = array[i];
+                }
+                else if(min > array[i]) {
+                    min = array[i];
+                }
+            }
+        }
+        Análise de complexidade: Melhor caso: f(n) = (n-1); Pior caso: f(n) = (n - 1) * 2
+    
+    Exercicio 3:
+        a) F, V, F, F, F, F, F, F
+        b) F, F, F, V, F, F, F, F
+        c) F, F, V, F, F, F, F, F
+        d) F, F, F, F, F, F, V, F 
+        e) F, F, F, F, F, V, F, F
+        f) F, F, F, F, F, F, V, F 
+    
+    Exercicio 4:
+        a) F, V, V, V, V, V, V, V 
+        b) F, F, F, V, V, V, V, V
+        c) F, F, V, V, V, V, V, V 
+        d) F, F, F, F, F, F, V, V 
+        e) F, F, F, F, F, V, V, V 
+        f) F, F, F, F, F, F, V, V
+    
+    Exercicio 5:
+        a) V, V, F, F, F, F, F, F 
+        b) V, V, V, V, F, F, F, F 
+        c) V, V, V, F, F, F, F, F 
+        d) V, V, V, V, V, V, V, F 
+        e) V, V, V, V, V, V, F, F 
+        f) V, V, V, V, V, V, V, F 
+    
+    Exercicio 6:
+        a) c = 3 m = 1
+        b) c = 1 m = 1
+        c) Não existe valores para c e m que garante a expressão: n >= m, 3n^2 + 5n + 1 >= c * n^3. Pois, sempre existirá um valor de n que não satisfaz a expressão, mesmo se o c for uma constante muito grande.
+    
+    Exercicio 7:
+        a) c2 = 4, c1 = 3, m = 5,2
+        b) Não existe valores para c2 e m que garante que a expressão: n >= m, c2 * n >= 3n^2 + 5n + 1. Ao aumentar o valor de c2, você só está retardando o momento que a curva quadrática supera a função linear.
+        c) Não existe valores para c1 e m que garante que a expressão: n >= m, c1 * n^3 <= 3n^2 + 5n + 1. Ao aumentar o valor de c1, você só está retardando o momento que a curva cubica supere a quadratica.
+    
+    Exercicio 8:
+        a) Melhor caso: f(n) = 1, 𝚯(1); Pior caso: f(n) = n - 1 𝚯(n)
+        b) Melhor caso: f(n) = n, 𝚯(n); Pior caso> f(n) = 2n - 2, 𝚯(n)
+    
+    Exercicio 9:
+        // Operação 1: Soma das variaveis a, b, c
+        for (int i = 0; i < n; i++) {
+            if(array[i] > 0) {
+                a++;
+            }
+            else {
+                b++;
+                c++;
+            }
+        }
+
+        //Operação 2: Comparação entre valores do array
+        for(int i = 0; i < n; i++) {    
+            if(array[i] > array[n - 1]) {
+                return true;
+            }
+            else if(array[i] < array[n - 1]) {
+                return false;
+            }
+            else {
+                if(array[i] + array[n - 1] > 50) {
+                    return true
+                }
+                else {
+                    return false;
+                }
+            }
+
+        }
+
+        
+        Operação 1: Melhor caso: f(n) = n, 𝚯(n); Pior caso: f(n) = 2n, 𝚯(n);
+        Operação 2: Melhor caso: f(n) = n, 𝚯(n); Pior caso: f(n) = 3n, 𝚯(n);
+    
+    Exercicio 10:
+        Pesquisas sequenciais: n * 𝚯(n) = 𝚯(n^2);
+        Pesquisa binaria: 𝚯(n * log n) + n * 𝚯(log n) = 𝚯(n * log n);
+        Logo, nesse caso a pesquisa binaria será mais eficiente.
+        
+
+
 
         
 
