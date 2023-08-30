@@ -1,14 +1,18 @@
 public class Questao3 {
     
+    public static boolean saoIguais(String string, String string_2) {
+        if(string == string_2) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
     public static String ciframentoCesar(String entradaString) {
         char[] novaString = new char[1000];
         for(int i = 0; i < entradaString.length(); i++) {
-            if((entradaString.charAt(i) >= 'A' && entradaString.charAt(i) <= 'Z') || (entradaString.charAt(i) >= 'a' && entradaString.charAt(i) <= 'z')) {
-                novaString[i] = (char) (entradaString.charAt(i) + 3);
-            }
-            else {
-                novaString[i] = entradaString.charAt(i);
-            }
+            novaString[i] = (char) (entradaString.charAt(i) + 3);                
         }
         return new String(novaString); 
     }
@@ -19,10 +23,10 @@ public class Questao3 {
         do {
             string = MyIO.readLine();
             String stringCifrada = ciframentoCesar(string);
-            if(string != "FIM") {
+            if(!saoIguais(string, "FIM")) {
                 MyIO.println(stringCifrada);
             }
-        }while(string != "FIM");
+        }while(!saoIguais(string, "FIM"));
 
     }
 }
