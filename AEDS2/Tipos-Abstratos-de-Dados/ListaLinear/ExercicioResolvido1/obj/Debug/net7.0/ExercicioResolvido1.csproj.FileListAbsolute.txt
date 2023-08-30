@@ -1,0 +1,14 @@
+C:\Users\User\PUC-CC-2Periodo\AEDS2\Tipos-Abstratos-de-Dados\ListaLinear\ExercicioResolvido1\obj\Debug\net7.0\ExercicioResolvido1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\PUC-CC-2Periodo\AEDS2\Tipos-Abstratos-de-Dados\ListaLinear\ExercicioResolvido1\obj\Debug\net7.0\ExercicioResolvido1.AssemblyInfoInputs.cache
+C:\Users\User\PUC-CC-2Periodo\AEDS2\Tipos-Abstratos-de-Dados\ListaLinear\ExercicioResolvido1\obj\Debug\net7.0\ExercicioResolvido1.AssemblyInfo.cs
+C:\Users\User\PUC-CC-2Periodo\AEDS2\Tipos-Abstratos-de-Dados\ListaLinear\ExercicioResolvido1\obj\Debug\net7.0\ExercicioResolvido1.csproj.CoreCompileInputs.cache
+C:\Users\User\PUC-CC-2Periodo\AEDS2\Tipos-Abstratos-de-Dados\ListaLinear\ExercicioResolvido1\bin\Debug\net7.0\ExercicioResolvido1.exe
+C:\Users\User\PUC-CC-2Periodo\AEDS2\Tipos-Abstratos-de-Dados\ListaLinear\ExercicioResolvido1\bin\Debug\net7.0\ExercicioResolvido1.deps.json
+C:\Users\User\PUC-CC-2Periodo\AEDS2\Tipos-Abstratos-de-Dados\ListaLinear\ExercicioResolvido1\bin\Debug\net7.0\ExercicioResolvido1.runtimeconfig.json
+C:\Users\User\PUC-CC-2Periodo\AEDS2\Tipos-Abstratos-de-Dados\ListaLinear\ExercicioResolvido1\bin\Debug\net7.0\ExercicioResolvido1.dll
+C:\Users\User\PUC-CC-2Periodo\AEDS2\Tipos-Abstratos-de-Dados\ListaLinear\ExercicioResolvido1\bin\Debug\net7.0\ExercicioResolvido1.pdb
+C:\Users\User\PUC-CC-2Periodo\AEDS2\Tipos-Abstratos-de-Dados\ListaLinear\ExercicioResolvido1\obj\Debug\net7.0\ExercicioResolvido1.dll
+C:\Users\User\PUC-CC-2Periodo\AEDS2\Tipos-Abstratos-de-Dados\ListaLinear\ExercicioResolvido1\obj\Debug\net7.0\refint\ExercicioResolvido1.dll
+C:\Users\User\PUC-CC-2Periodo\AEDS2\Tipos-Abstratos-de-Dados\ListaLinear\ExercicioResolvido1\obj\Debug\net7.0\ExercicioResolvido1.pdb
+C:\Users\User\PUC-CC-2Periodo\AEDS2\Tipos-Abstratos-de-Dados\ListaLinear\ExercicioResolvido1\obj\Debug\net7.0\ExercicioResolvido1.genruntimeconfig.cache
+C:\Users\User\PUC-CC-2Periodo\AEDS2\Tipos-Abstratos-de-Dados\ListaLinear\ExercicioResolvido1\obj\Debug\net7.0\ref\ExercicioResolvido1.dll
