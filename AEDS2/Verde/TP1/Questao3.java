@@ -1,12 +1,15 @@
 public class Questao3 {
     
     public static boolean saoIguais(String string, String string_2) {
-        if(string == string_2) {
-            return true;
-        }
-        else {
+        if(string.length() != string_2.length()) {
             return false;
         }
+        for(int i = 0; i < string.length(); i++) {
+            if(string.charAt(i) != string_2.charAt(i)) {
+                return false;
+            }
+        }
+        return true;
     }
     
     public static String ciframentoCesar(String entradaString) {
