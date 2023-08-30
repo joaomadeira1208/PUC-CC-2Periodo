@@ -1,5 +1,3 @@
-import mypackage.MyIO;
-
 public class Questao3 {
     
     public static String ciframentoCesar(String entradaString) {
@@ -7,6 +5,9 @@ public class Questao3 {
         for(int i = 0; i < entradaString.length(); i++) {
             if((entradaString.charAt(i) >= 'A' && entradaString.charAt(i) <= 'Z') || (entradaString.charAt(i) >= 'a' && entradaString.charAt(i) <= 'z')) {
                 novaString[i] = (char) (entradaString.charAt(i) + 3);
+            }
+            else {
+                novaString[i] = entradaString.charAt(i);
             }
         }
         return new String(novaString); 
