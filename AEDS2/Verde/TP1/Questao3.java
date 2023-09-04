@@ -13,7 +13,7 @@ public class Questao3 {
     }
     
     public static String ciframentoCesar(String entradaString) {
-        char[] novaString = new char[1000];
+        char[] novaString = new char[entradaString.length()];
         for(int i = 0; i < entradaString.length(); i++) {
             novaString[i] = (char) (entradaString.charAt(i) + 3);                
         }
