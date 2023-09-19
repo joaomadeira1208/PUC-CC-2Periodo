@@ -6,22 +6,23 @@
 // Função para verificar se string é um palindromo.
 bool isPalindromo(char string[]) {
     bool resp = true;
-    int tamanho = strlen(string); // Atribuir a variavel tamanho a extensao da string.
-    // Verificação se é um palindromo.
+    int tamanho = strlen(string); 
     for(int i = 0, j = tamanho - 1; i < tamanho/2; i++, j--) {
             if(string[i] != string[j]) {
                 resp = false;
-                i = tamanho; // Sai do loop, não é necessário verificar mais
+                i = tamanho; 
             }
     }
-    return resp; // Retonar verdadeiro se é palindromo, falso caso contrario.
+    return resp; 
 }
+
+// Main
 int main() {
     char *string = (char*)malloc(250 * sizeof(char)); // Aloca memoria para entrada
     bool palindromo;
     while(strcmp(string, "FIM") != 0) {
         scanf(" %[^\n]", string);  
-        palindromo = isPalindromo(string); // Verifica se a entrada é palindromo.
+        palindromo = isPalindromo(string); 
         if(palindromo) {
             printf("SIM\n");
         }

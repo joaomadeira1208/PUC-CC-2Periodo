@@ -1,5 +1,6 @@
-public class Questao3 {
+public class Ciframento {
     
+    // Método para verificar se duas strings são iguais.
     public static boolean saoIguais(String string, String string_2) {
         if(string.length() != string_2.length()) {
             return false;
@@ -11,7 +12,7 @@ public class Questao3 {
         }
         return true;
     }
-    
+    // Método para realizar o ciframento de César em um array de caracteres
     public static String ciframentoCesar(String entradaString) {
         char[] novaString = new char[entradaString.length()];
         for(int i = 0; i < entradaString.length(); i++) {
@@ -20,7 +21,7 @@ public class Questao3 {
         return new String(novaString); 
     }
     
-    
+    // Main
     public static void main(String[] args) {
         String string;
         do {

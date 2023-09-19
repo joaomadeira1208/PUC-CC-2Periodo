@@ -139,6 +139,9 @@ AS PROPRIEDADES DA MANIPULAÇÃO DE SOMAS
         S(n) + a(n + 1) = a(0) + Σ(i = 0 até n) ( (i+1) * (2^i+1) )
         S(n) + (n+1) * (2^n+1)
         S(n) = 2^n+1 * (n -1) + 2
+
+
+        
     
 
 

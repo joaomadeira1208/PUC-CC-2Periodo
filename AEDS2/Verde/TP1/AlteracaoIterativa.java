@@ -41,7 +41,7 @@ public class AlteracaoIterativa {
         return new String(aux);
     }
     
-    
+    // Main
     public static void main(String[] args) {
         String stringEntrada;
         Random gerador = new Random();

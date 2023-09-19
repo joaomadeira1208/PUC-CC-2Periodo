@@ -1,5 +1,7 @@
 import java.io.*;
 public class ArquivoJava {
+
+    // Main
     public static void main(String[] args) throws Exception{
         RandomAccessFile raf = new RandomAccessFile("arquivoJava.txt","rw");
         int numeroValores = MyIO.readInt();

@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+// Método RECURSIVO para verificar se uma string é um palindromo
 bool isPalindromo(char string[], int index) {
     bool resp = true;
     if(index < strlen(string)) {
@@ -17,6 +18,7 @@ bool isPalindromo(char string[], int index) {
     return resp;
 }
 
+// Main
 int main() {
     char *string = (char*)malloc( 500 * sizeof(char));
     int index = 0;

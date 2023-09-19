@@ -31,6 +31,8 @@ public class PalindromoRecursivo {
         return resp;
 
     }
+
+    // Main
     public static void main(String[] args) {
         String string;
         do {

@@ -1,8 +1,8 @@
 import java.io.*;
 import java.net.*;
-
 public class LeituraHTML {
 
+    // Método recebe um endereço como parâmetro, faz uma requisição HTTP para esse endereço, lê o conteúdo HTML da página e o retorna como uma string.
     public static String getHtml(String endereco) {
         URL url;
         InputStream is = null;
@@ -46,6 +46,7 @@ public class LeituraHTML {
         return true;
     }
 
+    // Main
     public static void main(String[] args) {
         String endereco, paginaHtml, nomePagina;
         MyIO.setCharset("UTF-8");
