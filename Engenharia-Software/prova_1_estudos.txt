@@ -1,0 +1,131 @@
+Processos de Software:
+
+Os processos de software desempenham um papel fundamental no desenvolvimento de sistemas. Neste contexto, é crucial entender 
+o modelo de processo genérico que orienta as atividades de engenharia de software. Além disso, é importante discernir entre 
+processos prescritivos e processos adaptativos.
+
+O que é um Processo de Desenvolvimento de Software?
+
+Um processo de desenvolvimento de software é uma coleção de atividades, métodos e práticas utilizados para criar e manter 
+software e seus produtos associados. É essencial compreender que um processo de software não se limita à metodologia, pois 
+abrange toda a gama de atividades envolvidas na criação de software de alta qualidade.
+
+Modelo de Processo Genérico:
+
+Os processos de desenvolvimento de software podem ser estruturados em um modelo genérico que consiste em 
+atividades metodológicas e atividades de apoio. As atividades metodológicas incluem comunicação, planejamento, modelagem, 
+construção e entrega. Enquanto isso, as atividades de apoio envolvem controle do projeto, administração de riscos, garantia de qualidade, 
+revisões técnicas, medição, gerenciamento de configuração de software, gerenciamento do reúso e produção de artefatos.
+
+Fluxo de Processo
+
+Os processos podem seguir diferentes fluxos, como linear, iterativo, evolucionário ou paralelo. A escolha do fluxo depende da 
+complexidade do projeto e das características dos envolvidos.
+
+Processo é sinônimo de Engenharia de Software?
+
+Embora um processo de software defina a abordagem adotada no desenvolvimento de software, a engenharia de software engloba 
+tecnologias, métodos e ferramentas automatizadas que fazem parte desse processo. Portanto, podemos dizer que processo e engenharia 
+de software estão interligados, mas não são idênticos.
+
+MODELOS PROCESSOS PRESCRITIVOS
+
+Modelo em Cascata (Waterfall Model):
+
+- Caracterizado por fases sequenciais, como análise, design, implementação, testes e manutenção.
+- Fácil de entender e planejar.
+- Pode ser inflexível às mudanças.
+- Pode resultar na detecção tardia de erros graves.
+
+Modelo de Processo Incremental:
+
+- Combina elementos de processos lineares e paralelos.
+- Constrói software em incrementos executáveis.
+- Abordagem flexível e adaptável.
+- Adequado para projetos maiores ou em constante evolução.
+
+Modelo de Processo Evolucionário:
+
+- Iterativo ou incremental.
+- Visa desenvolver versões cada vez mais completas do software.
+- Exemplos incluem a prototipação e o Modelo Espiral.
+- Enfatiza a capacidade de adaptação e a mitigação de riscos.
+
+
+
+MODELOS PROCESSOS ESPECIALIZADOS:
+
+• Desenvolvimento baseado em componentes 
+    ▪Importância do reúso de software
+• Modelo de métodos formais
+    ▪Ênfase na especificação matemática dos requisitos de software
+
+PSP - Processo de Software Pessoal
+- Deve se adequar às pessoas.
+- Importância de aprender com os erros
+- Atividades estruturais:
+    - Planejamento
+    - Projeto de alto nível 
+    - Revisão de projeto de alto nível
+    - Desenvolvimento
+    - Autopsia
+
+TSP - Processo de Software em Equipte
+- Baseado em lições aprendidas com o PSP
+- Criar equipes autodirigidas para produzir software em equipes
+- Atividades metodológicas:
+    - Lançamento do projeto
+    - Projeto de alto nível
+    - implementação
+    - Integração e testes
+    - Autópsia
+
+
+PROCESSO DE MANUTENÇÃO DE SISTEMAS:
+- Identificação do problemas
+- Análise do impacto das mudanças
+- Planejamento da abordagem.
+- Atualização da documentação
+- Implementação e implantação das alterações.
+
+PROCESSOS E EQUIPES
+    
+Modelo Cascata:   
+    - Modelo Monolítico
+        - Planejamento
+        - Não é escalavel
+        - Reflete modelo em Cascata
+        - Requisitos "Perfeitos" -> Desenhos Imutáveis -> Implementados em código
+
+Modelo Iterativo    
+    - Modelo Hierarquico
+
+
+
+PROBLEMAS:
+Pessoas: 
+    -“Inteligência compartilhada”
+    -Integração
+    -Comunicação
+Problemas:
+    - Dividir para conquistar
+Processos:
+    - Visão integrada
+Projeto:
+    - gerenciamento
+    - controle
+    - resultado
+
+
+
+
+
+
+
+Processo Unificado (UP)
+
+O Processo Unificado é uma abordagem flexível baseada em componentes interconectados, utilizando a Unified Modeling Language (UML). 
+Ele enfatiza o envolvimento contínuo do cliente e adaptação às mudanças nos requisitos.
+
+Em resumo, os processos de software desempenham um papel crucial na engenharia de software, guiando as atividades de desenvolvimento. 
+A escolha do modelo de processo depende das necessidades do projeto, sendo essencial adaptar e escolher o modelo adequado para cada situação.

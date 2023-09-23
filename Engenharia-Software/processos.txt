@@ -1,0 +1,46 @@
+Comparação entre modelos de processos 
+
+– Modelo em Cascata
+    • Prós do modelo em cascata
+        • É fácil de entender e planejar.
+        • Funciona para projetos pequenos e bem compreendidos.  
+        • A análise e o teste são simples e diretos.
+    • Contras do modelo em cascata
+        • Não se adapta bem a mudanças.
+        • O teste ocorre nas fases finais do processo. 
+        • A aprovação do cliente vem no final.
+
+- Prototipação
+    • Prós da prototipação
+        • O impacto das alterações aos requisitos é reduzido.   
+        • O cliente se envolve bastante e desde o início.
+        • Funciona bem para projetos pequenos.
+        • A probabilidade de rejeição do produto é reduzida.
+    • Contras da prototipação
+        • O envolvimento do cliente pode causar atrasos.
+        • Pode haver a tentação de “embalar” o protótipo.
+        • Desperdiça-se trabalho em um protótipo descartável. 
+        • É difícil de planejar e gerenciar.
+
+- Modelo Espiral
+    • Prós do modelo espiral
+        • Há envolvimento contínuo dos clientes.
+        • Os riscos de desenvolvimento são gerenciados.
+        • É apropriado para modelos grandes e complexos.    
+        • Funciona bem para artefatos extensíveis.
+    • Contras do modelo espiral
+        • Falhas de análise de risco podem fadar o projeto ao fracasso.     
+        • O projeto pode ser difícil de gerenciar.
+        • Exige uma equipe de desenvolvimento especializada.
+
+- Processo Unificado
+    • Prós do processo unificado
+        • A documentação de alta qualidade é enfatizada.    
+        • Há envolvimento contínuo dos clientes.
+        • Adapta-se a alterações aos requisitos.
+        • Funciona bem para projetos de manutenção.
+    • Contras do processo unificado
+        • Os casos de uso nem sempre são precisos.
+        • A integração de incrementos de software é complicada.     
+        • A sobreposição das fases pode causar problemas.
+        • Exige uma equipe de desenvolvimento especializada.

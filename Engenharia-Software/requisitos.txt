@@ -1,0 +1,202 @@
+Problemas dos Processos de Software:
+
+
+Destaca alguns problemas comuns nos processos de desenvolvimento de software, como mudanças frequentes de metas e estratégias 
+organizacionais, requisitos iniciais mal definidos, falhas na gestão de riscos e complexidade do software.
+Modelagem de Sistemas de Informação:
+
+Enfatiza a importância da modelagem na comunicação de decisões não óbvias em sistemas de informação. Modelos são usados porque 
+não é possível compreender completamente sistemas complexos.
+Requisitos:
+
+Explora a definição de requisitos, que variam desde declarações abstratas até especificações detalhadas e matemáticas.
+Requisitos podem ser a base para propostas de contratos e devem ser abertos à interpretação, mas, quando necessário, devem ser definidos em detalhe.
+Tipos de Requisitos:
+
+Divide os requisitos em funcionais (descrevem o que o sistema deve fazer), de usuário (em linguagem natural, descrevem serviços esperados), de sistema (detalham funções, serviços e restrições operacionais), e de domínio (refletem características e restrições do domínio de aplicação).
+Requisitos não Funcionais:
+
+Introduz requisitos não funcionais, que são restrições e condições sobre os serviços ou funções do sistema, como restrições de timing e padrões.
+Pontos Importantes:
+
+Reitera a importância dos requisitos funcionais e não funcionais na definição do que o sistema deve fazer e nas restrições que ele deve atender.
+Esses são os principais conceitos abordados no slide. Estude esses tópicos para se preparar para a sua prova de Engenharia de Software.
+
+Requisitos Funcionais:
+
+Os requisitos funcionais descrevem o que o sistema de software deve fazer em termos de funcionalidades, serviços ou ações específicas que o sistema deve oferecer.
+Eles definem como o sistema deve reagir a entradas específicas do usuário ou de outros sistemas e como ele deve se comportar em diferentes situações.
+Os requisitos funcionais podem também estabelecer o que o sistema não deve fazer, ou seja, as limitações nas funcionalidades.
+Exemplo (para um sistema de reservas de voo):
+
+O sistema deve permitir que os usuários pesquisem voos disponíveis por data e destino.
+O sistema não deve permitir que um usuário reserve um voo sem fornecer informações de pagamento.
+Requisitos de Usuário:
+
+Os requisitos de usuário são declarações, geralmente em linguagem natural, que descrevem os serviços ou funcionalidades esperados do sistema do ponto de vista dos usuários finais.
+Eles são escritos para serem compreensíveis por qualquer usuário, bem como por arquitetos de sistemas.
+Exemplo:
+
+Os usuários devem ser capazes de fazer login no sistema usando seu nome de usuário e senha.
+O sistema deve exibir os resultados de busca de voos em uma página amigável e fácil de entender.
+Requisitos de Sistema:
+
+Os requisitos de sistema detalham as funções, serviços e restrições operacionais do sistema de software.
+Eles são mais detalhados do que os requisitos de usuário e são escritos para serem compreendidos por usuários finais, arquitetos de sistemas e desenvolvedores de software.
+Podem ser classificados em diferentes categorias, como requisitos funcionais, requisitos não funcionais e requisitos de domínio.
+Exemplo:
+
+O sistema deve fornecer uma API que permita a integração com sistemas de terceiros para processamento de pagamentos.
+O sistema deve ser capaz de suportar até 1.000 usuários simultâneos durante o horário de pico.
+Requisitos de Domínio:
+
+Os requisitos de domínio são provenientes do domínio da aplicação e refletem as características e restrições específicas desse domínio.
+Eles podem ser funcionais (descrevendo como o sistema deve lidar com aspectos específicos do domínio) ou não funcionais (impondo restrições globais ao sistema).
+Esses requisitos podem criar novos requisitos funcionais, restrições sobre requisitos existentes ou definir cálculos específicos.
+Exemplo:
+
+Para um sistema de controle de trens, um requisito de domínio pode ser a fórmula específica para calcular a desaceleração do trem em diferentes condições climáticas.
+Esses são os quatro tipos principais de requisitos mencionados no slide, cada um com sua função e detalhamento específico, sendo fundamentais para a definição e especificação completa dos requisitos de um sistema de software.
+
+
+
+Especificação de Requisitos
+
+A especificação de requisitos é o processo de escrever os requisitos de usuário e de sistema em um documento. Isso é importante para entender o que o sistema de software precisa fazer.
+
+Os requisitos devem ser escritos de forma que sejam compreensíveis para os usuários finais e clientes, mesmo que não tenham conhecimento técnico. Requisitos de sistema são mais detalhados e podem incluir informações técnicas.
+
+Os requisitos podem ser parte de um contrato para o desenvolvimento do sistema, portanto, é fundamental que sejam o mais completos possível.
+
+Projeto e Requisitos
+
+Os requisitos indicam o que o sistema deve fazer, enquanto o projeto descreve como fazer isso. Na prática, requisitos e projeto estão interligados.
+
+A arquitetura do sistema pode ser projetada para atender aos requisitos.
+
+O sistema pode precisar interagir com outros sistemas, o que pode restringir o projeto e impor requisitos adicionais, muitas vezes relacionados aos requisitos não funcionais.
+
+Formas de Escrever
+
+Existem diferentes formas de escrever requisitos, incluindo especificação em linguagem natural, especificações estruturadas, especificações em formulários, especificações tabulares, cenários e casos de uso.
+
+Cada forma de escrever requisitos tem suas vantagens e desvantagens, e a escolha depende do tipo de sistema e do contexto.
+
+Independentemente da forma escolhida, é importante seguir diretrizes como criar um formato padrão, usar linguagem consistente, usar "deve" para requisitos obrigatórios e incluir uma justificativa para cada requisito.
+
+Problemas da Linguagem Natural
+
+A especificação em linguagem natural pode enfrentar problemas de falta de clareza, confusão de requisitos e amálgama de requisitos, tornando o documento difícil de entender e interpretar.
+
+É importante tomar cuidado para evitar esses problemas ao escrever requisitos em linguagem natural.
+
+Espero que este resumo seja útil para você estudar os conceitos relacionados à especificação de requisitos. Se tiver mais alguma dúvida, estou à disposição!
+
+Documento de Requisitos
+
+O documento de requisitos de software é a declaração oficial do que é demandado dos desenvolvedores do sistema.
+
+Deve incluir uma definição de requisitos do usuário e uma especificação de requisitos do sistema.
+
+Não necessariamente é um documento de projeto.
+
+Deve definir "O QUE" o sistema deve fazer, em vez de "COMO" deve fazê-lo.
+
+Requisitos e Métodos Ágeis
+
+A produção de um documento de requisitos pode ser vista como desperdício de tempo em métodos ágeis, pois os requisitos mudam rapidamente.
+
+Métodos ágeis, como o XP, usam a engenharia de requisitos incrementais e expressam requisitos como "histórias de usuário."
+
+Isso pode ser problemático para sistemas críticos ou desenvolvidos por várias equipes.
+
+Variabilidade do Documento de Requisitos
+
+A quantidade de informações em um documento de requisitos depende do tipo de sistema e da abordagem de desenvolvimento.
+
+Sistemas desenvolvidos incrementalmente tendem a ter menos detalhes no documento de requisitos.
+
+Padrões, como a norma IEEE, são aplicáveis a projetos de engenharia de sistemas de grande porte.
+
+Estrutura do Documento de Requisitos
+
+O documento de requisitos segue uma estrutura específica, que pode incluir introdução, visão geral do sistema, requisitos funcionais, requisitos não funcionais e outros, dependendo do padrão adotado.
+Características dos Bons Requisitos
+
+Clareza, completude, ausência de ambiguidade, implementabilidade, consistência, verificabilidade e rastreabilidade são características dos bons requisitos.
+Engenharia de Requisitos
+
+É o processo de descobrir, analisar, documentar e verificar os serviços e as restrições de um sistema.
+
+Enfoca problemas e objetivos do mundo real para definir funções e restrições dos sistemas de software.
+
+Importância da Definição de Requisitos
+
+A falta de definição adequada de requisitos pode levar a perda de vidas, prejuízos financeiros, atrasos nas entregas, aumento de riscos e baixa qualidade.
+Fases da Engenharia de Requisitos
+
+As principais etapas incluem concepção, levantamento, elaboração, negociação, especificação, validação e gestão de requisitos.
+Concepção
+
+Envolve o entendimento básico do problema, a definição dos stakeholders, a natureza da solução desejada e a comunicação preliminar.
+Levantamento de Requisitos
+
+Pode ser desafiador devido a problemas de escopo, entendimento e volatilidade.
+Identificação de Requisitos
+
+Envolve avaliar o negócio, identificar as pessoas certas, definir o ambiente tecnológico e identificar restrições do domínio do problema.
+Elaboração e Negociação de Requisitos
+
+Questões importantes incluem garantir que os requisitos estejam alinhados com o objetivo do sistema, definir o nível de abstração, integrar e simplificar requisitos e compreender suas inter-relações.
+Especificação de Requisitos
+
+Pode ser feita por meio de documentação escrita, modelagem gráfica, modelagem matemática, protótipos ou combinação deles.
+Validação de Requisitos
+
+Envolve verificar se os requisitos são interpretados corretamente e se são factíveis de implementar.
+Gestão de Requisitos
+
+Lida com a volatilidade dos requisitos e mantém um histórico das modificações.
+Estudo de Viabilidade
+
+Decide se vale a pena desenvolver o sistema proposto, considerando sua contribuição para os objetivos da organização e sua viabilidade técnica e financeira.
+Implementação do Estudo de Viabilidade
+
+Baseia-se na avaliação de informações, coleta de informações e redação de relatórios.
+Elicitação e Análise de Requisitos
+
+Envolvem a descoberta de requisitos por meio de entrevistas, observação etnográfica e outras técnicas.
+Problemas de Análise de Requisitos
+
+Stakeholders podem não saber o que realmente querem, expressar requisitos de forma diferente, ter requisitos conflitantes e serem influenciados por fatores organizacionais.
+Descoberta de Requisitos
+
+Envolve reunir informações sobre sistemas propostos e existentes e obter requisitos de usuário e de sistema a partir dessas informações.
+Pontos de Vista
+
+São maneiras de estruturar os requisitos para representar perspectivas de diferentes stakeholders.
+Entrevistas
+
+Podem ser fechadas (com questões predefinidas) ou abertas (sem roteiro predefinido) e são usadas para obter um entendimento geral.
+Etnografia
+
+Envolve observar e analisar como as pessoas realmente trabalham para compreender seus processos.
+Validação de Requisitos
+
+Conferência de validade, consistência, completude, realismo e verificabilidade dos requisitos.
+Verificação de Requisitos
+
+Conferência de validade, compreensão, rastreabilidade e adaptabilidade dos requisitos.
+Gerenciamento de Requisitos
+
+Lida com mudanças nos requisitos e envolve identificação, processo de gerenciamento de mudanças, políticas de rastreabilidade e ferramentas de suporte.
+Mudança de Requisitos
+
+As mudanças ocorrem devido a novos pontos de vista, conflitos entre requisitos e mudanças no ambiente de negócios.
+Rastreabilidade
+
+Envolve a ligação entre requisitos, suas fontes e o projeto do sistema.
+Apoio de Ferramenta CASE
+
+Pode incluir armazenamento de requisitos, gerenciamento de mudanças e gerenciamento de rastreabilidade.
+Esses são os principais pontos apresentados nos slides sobre Engenharia de Requisitos. Se tiver alguma pergunta específica ou precisar de mais informações sobre algum tópico, sinta-se à vontade para perguntar.

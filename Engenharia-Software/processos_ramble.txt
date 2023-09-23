@@ -1,0 +1,75 @@
+Processos de software são a totalidade de práticas utilizadas para criar e manter um programa de software.
+Atividades metodologicas: comunicação,planejamento, modelagem, construção, entrega.
+Atividades de apoio: controle de risco, garantia de qualidade, revisões, etc.
+
+Porque a engenharia de software não é igual a processos de software?
+    Apesar dos processos de software definirem a arbodagem do desenvolvimento. A engenharia de software
+    engloba também tecnologias que fazem parte do processo.
+
+Padrões de processos: identificam problemas e onde eles ocorrem em um trabalho de engenharia de software e sugere soluções.
+    Estágio: problemas relacionados a atividades metodologicas
+        - estabelecendo comunicação
+    tarefas: problemas relacionados a uma ação da engenharia de software.
+        - levantamento de necessidades
+    fases: define a sequencia de das atividades metodologicas que ocorrem dentro do processo.
+        - Modelo espiral, prototipação.
+
+Modelos prescritivos/tradicionais:
+    - tentam trazer ordem ao "caos"
+    - prescrevem um conjunto de elementos do processo 
+
+    - Modelo Cascata
+    - Modelo incremental
+    - Modelo Evolucionario
+        - Modelo espiral
+        - prototipação
+
+MODELO CASCATA
+    -Pros 
+        - Bom para um projeto pequeno bem definido e estavel
+        - Analise e teste sao simples e diretos
+    -Contras    
+        - Ruim para um projeto que esta sujeita a alterações
+        - O teste ocorre no final do projeto 
+        - O cliente só vai ter acesso ao projeto no final deste.
+
+MODELO INCREMENTAL
+    - Pros
+        - Bom para um projeto que não possui tudo definido desde o início
+        - Bom para um projeto em que o usuário precisa de uma entrega rapida de valor.
+        - Flexivel para mudanças
+        - Verifica erros com antecedencia.
+    - Contras
+        - Complexidade de gestao
+        - Custo crescente
+        - Efeito "escada rolante"
+
+PROTOTIPACAO:
+    - Prós  
+        - O cliente se envolve bastante desde o início
+        - A probabilidade de rejeição e o impacto de alterações é diminuida
+    - Contras   
+        - Pode ocorrer atrasos graças ao envolvimento do cliente
+        - Desperdiça trabalho em um protótipo descartável
+        - Dificil de planejar e gerenciar
+
+ESPIRAL:
+    - Prós
+        - Apropriado a modelos grandes e complexos
+        - Funciona bem para artefatos extensiveis
+        - Riscos de desenvolvimento são gerenciados
+    - Contras
+        - Gestão pode ser Dificil
+        - Falhas de analise de risco podem acabar com o projeto.
+
+PROCESSO UNIFICADO:
+    - Iterativo e incremental
+    - Arquitetura centrada.
+    - Prós
+        - A documentação de alta qualidade
+        - Há envolvimento continuo com os clientes
+        - Adapta-se a alterações
+    -Contras:
+        - Exige uma equipe de desenvolvimento especializada
+        - Sobreposição de fases pode causar problemas.
+
