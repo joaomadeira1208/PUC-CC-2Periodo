@@ -1,7 +1,7 @@
 import mypackage.MyIO;
 
 public class Lista {
-    int removerPilha() {
+    int removerFila() {
         if(n == 0) {
             throw new Exception("Erro");
         }
@@ -9,7 +9,7 @@ public class Lista {
         return array[--n];
     }
 
-    int removerFila() {
+    int removerPilha() {
         if(n == 0) {
             throw new Exception("Erro");
         }
