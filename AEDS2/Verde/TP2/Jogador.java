@@ -112,8 +112,51 @@ public class Jogador {
                 + anoNascimento + " ## " + cidadeNascimento + " ## " + estadoNascimento + "]");
     }
 
-    public void ler(String nomeArquivo, )
+    public void ler(String nomeArquivo, Map<Integer, Jogador> map) {
+        try (FileReader fileReader = new FileReader(nomeArquivo);
+                BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+            String linha = bufferedReader.readLine();
+            boolean cabecalho = true;
 
-   
+            while (linha != null) {
+                if (cabecalho) {
+                    cabecalho = false;
+                    continue;
+                }
+
+                String[] parts = linha.split(",");
+
+                for (int i = 0; i < parts.length; i++) {
+                    if (parts[i].isEmpty() && i < 7) {
+                        parts[i] = "MISSING"; // Or set it to some default value
+                    }
+                }
+                int id = Integer.parseInt(parts[0].trim());
+                String nome = parts[1].trim();
+                int altura = Integer.parseInt(parts[2].trim());
+                int peso = Integer.parseInt(parts[3].trim());
+                String universidade = parts[4].trim();
+                int anoNascimento = Integer.parseInt(parts[5].trim());
+                String cidadeNascimento = parts[6].trim();
+                String estadoNascimento = parts[7].trim();
+
+                Jogador jogador = new Jogador(id, nome, altura, peso, universidade, anoNascimento, cidadeNascimento,
+                        estadoNascimento);
+                map.put(id, jogador);
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        Map<Integer, Jogador> jogadores = new HashMap<>();
+        Jogador jogador = new Jogador();
+        jogador.ler("players.csv", jogadores);
+        Jogador foda = jogadores.get(2);
+        foda.imprimir();
+
+    }
 
 }

@@ -1,0 +1,87 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\Verilog\2023-2~1\PROGRA~1\ICARUS~1\lib\ivl\system.vpi";
+:vpi_module "C:\Verilog\2023-2~1\PROGRA~1\ICARUS~1\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\Verilog\2023-2~1\PROGRA~1\ICARUS~1\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\Verilog\2023-2~1\PROGRA~1\ICARUS~1\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\Verilog\2023-2~1\PROGRA~1\ICARUS~1\lib\ivl\va_math.vpi";
+S_0000022ea287ee30 .scope module, "Exercicio0105" "Exercicio0105" 2 1;
+ .timescale 0 0;
+v0000022ea287e9a0_0 .var "s", 71 0;
+v0000022ea2876e00_0 .var "x", 39 0;
+S_0000022ea2879bc0 .scope begin, "main" "main" 2 6, 2 6 0, S_0000022ea287ee30;
+ .timescale 0 0;
+    .scope S_0000022ea287ee30;
+T_0 ;
+    %pushi/vec4 1347765037, 0, 32; draw_string_vec4
+    %pushi/vec4 1296649793, 0, 32; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %pushi/vec4 83, 0, 8; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %store/vec4 v0000022ea287e9a0_0, 0, 72;
+    %end;
+    .thread T_0;
+    .scope S_0000022ea287ee30;
+T_1 ;
+    %fork t_1, S_0000022ea2879bc0;
+    %jmp t_0;
+    .scope S_0000022ea2879bc0;
+t_1 ;
+    %vpi_call 2 7 "$display", "Exercicio 5 - Guia 1" {0 0 0};
+    %vpi_call 2 8 "$display", "s = %s", v0000022ea287e9a0_0 {0 0 0};
+    %vpi_call 2 9 "$display", "(16_ASCII) = %h", v0000022ea287e9a0_0 {0 0 0};
+    %vpi_call 2 10 "$display", "(2_ASCII) = %b", v0000022ea287e9a0_0 {0 0 0};
+    %pushi/vec4 78, 0, 8;
+    %ix/load 4, 32, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0000022ea2876e00_0, 4, 8;
+    %pushi/vec4 111, 0, 8;
+    %ix/load 4, 24, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0000022ea2876e00_0, 4, 8;
+    %pushi/vec4 105, 0, 8;
+    %ix/load 4, 16, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0000022ea2876e00_0, 4, 8;
+    %pushi/vec4 116, 0, 8;
+    %ix/load 4, 8, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0000022ea2876e00_0, 4, 8;
+    %pushi/vec4 101, 0, 8;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0000022ea2876e00_0, 4, 8;
+    %vpi_call 2 16 "$display", "116 157 151 164 145 (8) = %s (ASCII)", v0000022ea2876e00_0 {0 0 0};
+    %pushi/vec4 77, 0, 8;
+    %ix/load 4, 32, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0000022ea2876e00_0, 4, 8;
+    %pushi/vec4 46, 0, 8;
+    %ix/load 4, 24, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0000022ea2876e00_0, 4, 8;
+    %pushi/vec4 32, 0, 8;
+    %ix/load 4, 16, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0000022ea2876e00_0, 4, 8;
+    %pushi/vec4 71, 0, 8;
+    %ix/load 4, 8, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0000022ea2876e00_0, 4, 8;
+    %pushi/vec4 46, 0, 8;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v0000022ea2876e00_0, 4, 8;
+    %vpi_call 2 24 "$display", "4D 2E 20 47 2E (16) = %s (ASCII)", v0000022ea2876e00_0 {0 0 0};
+    %end;
+    .scope S_0000022ea287ee30;
+t_0 %join;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Exercicio0105.v";
