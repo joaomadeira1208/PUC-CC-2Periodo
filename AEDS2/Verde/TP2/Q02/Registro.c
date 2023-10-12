@@ -127,7 +127,7 @@ int main() {
     Jogador* jogadores = NULL;
     char* string = (char*)malloc(250 * sizeof(char));
     int numJogadores = 0;
-    ler("/tmp/players.csv", &jogadores, &numJogadores);
+    ler("players.csv", &jogadores, &numJogadores);
     while(strcmp(string, "FIM") != 0) {
         scanf(" %[^\n]", string);
         if(strcmp(string, "FIM") != 0) {
