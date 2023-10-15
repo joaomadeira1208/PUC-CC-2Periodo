@@ -6,7 +6,6 @@ import java.io.FileWriter;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import mypackage.MyIO;
 
 public class Jogador {
     private int id;
@@ -197,36 +196,46 @@ public class Jogador {
         }
     }
 
-    
-    // Método que ordena a lista de jogadores usando o algoritmo de ordenação por seleção.
-    public static void ordernacaoSelecao(ArrayList<Jogador> listaJogadores) {
+    // Método que ordena a lista de jogadores usando o algoritmo de ordenação por inserção.
+    public static void ordenacaoInsercao(ArrayList<Jogador> listaJogadores) {
         int n = listaJogadores.size();
-        for(int i = 0; i < n - 1; i++) {
-            int menor = i;
-            for(int j = (i + 1); j < n; j++) {
+        for(int i = 1; i < n; i++) {
+            Jogador tmp = listaJogadores.get(i);
+            int j = i - 1;
+            
+            while(j >= 0)  {
                 comparacoes++;
-                String nome1 = listaJogadores.get(menor).getNome();
-                String nome2 = listaJogadores.get(j).getNome();
-                int comparacaoNomes = nome1.compareTo(nome2);
-                if(comparacaoNomes > 0) {
-                    menor = j;
+                if(listaJogadores.get(j).getAnoNasc() > tmp.getAnoNasc()) {
+                    movimentacoes++;
+                    listaJogadores.set(j+1, listaJogadores.get(j));
+                    j--;
                 }
+                else if(listaJogadores.get(j).getAnoNasc() == tmp.getAnoNasc()) {
+                    comparacoes++;
+                    if(listaJogadores.get(j).getNome().compareTo(tmp.getNome()) > 0) {
+                        movimentacoes++;
+                        listaJogadores.set(j+1, listaJogadores.get(j));
+                        j--;
+                    }
+                    else {
+                        break;
+                    }
+                    
+                }
+                else {
+                    break;
+                }
+                
             }
-            movimentacoes += 3;
-            swap(listaJogadores,menor, i);
+            movimentacoes++;
+            listaJogadores.set(j+1, tmp);
         }
     }
     
-    // Método Swap que troca a posição de dois jogadores na lista.
-    public static void swap(ArrayList<Jogador> listaJogadores, int index1, int index2) {
-        Jogador temp = listaJogadores.get(index1);
-        listaJogadores.set(index1, listaJogadores.get(index2));
-        listaJogadores.set(index2, temp);
-    }
 
     // Método para criar o arquivo de registro de log.
     public static void registroDeLog(String matricula, long tempoExecucao) {
-        try (FileWriter fw = new FileWriter(matricula + "_selecao.txt");
+        try (FileWriter fw = new FileWriter(matricula + "_insercao.txt");
              PrintWriter pw = new PrintWriter(fw)) {
             pw.println(matricula + "\t" + comparacoes + "\t" + movimentacoes + "\t" + tempoExecucao);
         } catch (IOException e) {
@@ -256,7 +265,7 @@ public class Jogador {
         Map<Integer, Jogador> jogadores = new HashMap<>();
         ArrayList<Jogador> listaJogadores = new ArrayList<>();
         Jogador jogador = new Jogador();
-        jogador.ler("tmp/players.csv", jogadores);
+        jogador.ler("/tmp/players.csv", jogadores);
         
         String entrada;
         do{
@@ -269,7 +278,7 @@ public class Jogador {
         }while(!equalStrings(entrada, "FIM"));
 
         long tempoInicio = System.currentTimeMillis();
-        ordernacaoSelecao(listaJogadores);
+        ordenacaoInsercao(listaJogadores);
         long tempoFinal = System.currentTimeMillis();
         long tempoTotal = tempoFinal - tempoInicio;
         registroDeLog("800854", tempoTotal);

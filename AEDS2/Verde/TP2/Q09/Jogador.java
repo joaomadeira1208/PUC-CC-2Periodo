@@ -197,24 +197,113 @@ public class Jogador {
         }
     }
 
-    
-    // Método que ordena a lista de jogadores usando o algoritmo de ordenação por seleção.
-    public static void ordernacaoSelecao(ArrayList<Jogador> listaJogadores) {
+    // Método que ordena a lista de jogadores usando o algoritmo heapsort. A lista será ordenado de acordo com a altura, em casos de empate de acordo com o nome.
+    public static ArrayList<Jogador> heapsort(ArrayList<Jogador> listaJogadores) {
         int n = listaJogadores.size();
-        for(int i = 0; i < n - 1; i++) {
-            int menor = i;
-            for(int j = (i + 1); j < n; j++) {
-                comparacoes++;
-                String nome1 = listaJogadores.get(menor).getNome();
-                String nome2 = listaJogadores.get(j).getNome();
-                int comparacaoNomes = nome1.compareTo(nome2);
-                if(comparacaoNomes > 0) {
-                    menor = j;
+        ArrayList<Jogador> temp = new ArrayList<>(n+1);
+        temp.add(null);
+        for(int i = 0; i < n; i++) {
+            temp.add(i+1, listaJogadores.get(i));
+        }
+        listaJogadores = temp;
+        for(int tamHeap = 2; tamHeap <= n; tamHeap++) {
+            construir(tamHeap, listaJogadores);
+        }
+
+        int tamHeap = n;
+        while(tamHeap > 1) {
+            swap(listaJogadores, 1, tamHeap--);
+            reconstruir(tamHeap, listaJogadores);
+        }
+
+        temp = listaJogadores;
+        listaJogadores = new ArrayList<>(n);
+        for(int i = 0; i < n; i++) {
+            listaJogadores.add(i, temp.get(i+1));
+        }
+        return listaJogadores;
+
+    }
+
+    // Método construir para construir o heap a partir da lista de jogadores.
+    public static void construir(int tamHeap, ArrayList<Jogador> listaJogadores) {
+        int i = tamHeap;
+        while(i > 1) {
+            comparacoes += 2;
+            if(listaJogadores.get(i).getAltura() > listaJogadores.get(i/2).getAltura()) {
+                comparacoes--;
+                swap(listaJogadores, i, i/2);
+            }
+            else if(listaJogadores.get(i).getAltura() == listaJogadores.get(i/2).getAltura()) {
+                String nome1 = listaJogadores.get(i).getNome();
+                String nome2 = listaJogadores.get(i/2).getNome();
+                if(nome1.compareTo(nome2) > 0) {
+                    swap(listaJogadores, i, i/2);
+                }
+                else {
+                    break;
                 }
             }
-            movimentacoes += 3;
-            swap(listaJogadores,menor, i);
+            else {
+                break;
+            }
+            i/=2;
         }
+    }
+
+    // Método reconstruir para reconstruir o heap a partir da lista de jogadores.
+    public static void reconstruir(int tamHeap, ArrayList<Jogador> listaJogadores) {
+        int i = 1;
+        while(i <= (tamHeap/2)) {
+            comparacoes += 2;
+            int filho = getMaiorFilho(i, tamHeap, listaJogadores);
+            if(listaJogadores.get(i).getAltura() < listaJogadores.get(filho).getAltura()) {
+                comparacoes--;
+                swap(listaJogadores, i, filho);
+                i = filho;
+            }
+            else if(listaJogadores.get(i).getAltura() == listaJogadores.get(filho).getAltura()) {
+                String nome1 = listaJogadores.get(i).getNome();
+                String nome2 = listaJogadores.get(filho).getNome();
+                if(nome1.compareTo(nome2) < 0) {
+                    swap(listaJogadores, i, filho);
+                    i = filho;
+                }
+                else {
+                    i = tamHeap;
+                }
+            }
+            else {
+                i = tamHeap;
+            }
+        }
+    }
+
+    // Método getMaiorFilho para obter o índice do maior filho de um nó no heap.
+    public static int getMaiorFilho(int i, int tamHeap, ArrayList<Jogador> listaJogadores) {
+        int filho;
+        comparacoes += 2;
+        if(2*i == tamHeap || listaJogadores.get(2*i).getAltura() > listaJogadores.get(2*i + 1).getAltura()) {
+            comparacoes--;
+            if(2*i == tamHeap) {
+                comparacoes--;
+            }
+            filho = 2*i;
+        }
+        else if(listaJogadores.get(2*i).getAltura() == listaJogadores.get(2*i + 1).getAltura()) {
+            String nome1 = listaJogadores.get(2*i).getNome();
+            String nome2 = listaJogadores.get(2*i + 1).getNome();
+            if(nome1.compareTo(nome2) > 0) {
+                filho = 2*i;
+            }
+            else {
+                filho = 2*i + 1;
+            }
+        }
+        else {
+            filho = 2*i + 1;
+        }
+        return filho;
     }
     
     // Método Swap que troca a posição de dois jogadores na lista.
@@ -222,11 +311,12 @@ public class Jogador {
         Jogador temp = listaJogadores.get(index1);
         listaJogadores.set(index1, listaJogadores.get(index2));
         listaJogadores.set(index2, temp);
+        movimentacoes += 2;
     }
 
     // Método para criar o arquivo de registro de log.
     public static void registroDeLog(String matricula, long tempoExecucao) {
-        try (FileWriter fw = new FileWriter(matricula + "_selecao.txt");
+        try (FileWriter fw = new FileWriter(matricula + "_heapsort.txt");
              PrintWriter pw = new PrintWriter(fw)) {
             pw.println(matricula + "\t" + comparacoes + "\t" + movimentacoes + "\t" + tempoExecucao);
         } catch (IOException e) {
@@ -256,7 +346,7 @@ public class Jogador {
         Map<Integer, Jogador> jogadores = new HashMap<>();
         ArrayList<Jogador> listaJogadores = new ArrayList<>();
         Jogador jogador = new Jogador();
-        jogador.ler("tmp/players.csv", jogadores);
+        jogador.ler("/tmp/players.csv", jogadores);
         
         String entrada;
         do{
@@ -269,7 +359,7 @@ public class Jogador {
         }while(!equalStrings(entrada, "FIM"));
 
         long tempoInicio = System.currentTimeMillis();
-        ordernacaoSelecao(listaJogadores);
+        listaJogadores = heapsort(listaJogadores);
         long tempoFinal = System.currentTimeMillis();
         long tempoTotal = tempoFinal - tempoInicio;
         registroDeLog("800854", tempoTotal);
