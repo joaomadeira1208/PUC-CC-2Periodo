@@ -2,11 +2,8 @@ import java.util.Map;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
-import mypackage.MyIO;
 
 public class Jogador {
     private int id;
@@ -17,8 +14,6 @@ public class Jogador {
     private int anoNascimento;
     private String cidadeNascimento;
     private String estadoNascimento;
-    static int comparacoes = 0;
-    static int movimentacoes = 0;
 
     // Construtor padrão da classe Jogador
     public Jogador() {
@@ -199,24 +194,49 @@ public class Jogador {
         }
     }
 
-    // Método que ordena a lista de jogadores usando o algoritmo de ordenação por
-    // seleção.
-    public static void ordernacaoSelecao(ArrayList<Jogador> listaJogadores) {
+    // Método de ordenação por seleção que retorna os 'k' menores jogadores com base
+    // no nome.
+    public static ArrayList<Jogador> ordernacaoSelecao(ArrayList<Jogador> listaJogadores, int k) {
         int n = listaJogadores.size();
-        for (int i = 0; i < n - 1; i++) {
+        ArrayList<Jogador> listaParcial = new ArrayList<>(k);
+        for (int i = 0; i < k; i++) {
+            listaParcial.add(i, listaJogadores.get(i));
+        }
+
+        for (int i = k; i < n; i++) {
+            Jogador maior = getMaior(listaParcial);
+            String nome1 = maior.getNome();
+            String nome2 = listaJogadores.get(i).getNome();
+            if (nome1.compareTo(nome2) > 0) {
+                listaParcial.remove(maior);
+                listaParcial.add(listaJogadores.get(i));
+            }
+        }
+
+        for (int i = 0; i < k - 1; i++) {
             int menor = i;
-            for (int j = (i + 1); j < n; j++) {
-                comparacoes++;
-                String nome1 = listaJogadores.get(menor).getNome();
-                String nome2 = listaJogadores.get(j).getNome();
-                int comparacaoNomes = nome1.compareTo(nome2);
-                if (comparacaoNomes > 0) {
+            for (int j = i + 1; j < k; j++) {
+                String nome1 = listaParcial.get(menor).nome;
+                String nome2 = listaParcial.get(j).nome;
+                if (nome1.compareTo(nome2) > 0) {
                     menor = j;
                 }
             }
-            movimentacoes += 3;
-            swap(listaJogadores, menor, i);
+            swap(listaParcial, menor, i);
         }
+
+        return listaParcial;
+    }
+
+    // Método para encontrar e retornar o maior Jogador de acordo com o nome.
+    public static Jogador getMaior(ArrayList<Jogador> listaJogadores) {
+        Jogador maior = listaJogadores.get(0);
+        for (int i = 0; i < listaJogadores.size(); i++) {
+            if (maior.getNome().compareTo(listaJogadores.get(i).getNome()) < 0) {
+                maior = listaJogadores.get(i);
+            }
+        }
+        return maior;
     }
 
     // Método Swap que troca a posição de dois jogadores na lista.
@@ -224,16 +244,6 @@ public class Jogador {
         Jogador temp = listaJogadores.get(index1);
         listaJogadores.set(index1, listaJogadores.get(index2));
         listaJogadores.set(index2, temp);
-    }
-
-    // Método para criar o arquivo de registro de log.
-    public static void registroDeLog(String matricula, long tempoExecucao) {
-        try (FileWriter fw = new FileWriter(matricula + "_selecao.txt");
-                PrintWriter pw = new PrintWriter(fw)) {
-            pw.println(matricula + "\t" + comparacoes + "\t" + movimentacoes + "\t" + tempoExecucao);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     // Método para comparar duas strings e verificar se são iguais.
@@ -256,7 +266,7 @@ public class Jogador {
         Map<Integer, Jogador> jogadores = new HashMap<>();
         ArrayList<Jogador> listaJogadores = new ArrayList<>();
         Jogador jogador = new Jogador();
-        jogador.ler("tmp/players.csv", jogadores);
+        jogador.ler("/tmp/players.csv", jogadores);
 
         String entrada;
         do {
@@ -268,12 +278,8 @@ public class Jogador {
             }
         } while (!equalStrings(entrada, "FIM"));
 
-        long tempoInicio = System.currentTimeMillis();
-        ordernacaoSelecao(listaJogadores);
-        long tempoFinal = System.currentTimeMillis();
-        long tempoTotal = tempoFinal - tempoInicio;
-        registroDeLog("800854", tempoTotal);
-        imprimir(listaJogadores);
+        ArrayList<Jogador> listaParcial = ordernacaoSelecao(listaJogadores, 10);
+        imprimir(listaParcial);
 
     }
 
