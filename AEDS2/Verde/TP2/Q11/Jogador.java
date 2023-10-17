@@ -1,9 +1,11 @@
 import java.util.Map;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.BufferedReader;
 import java.io.IOException;
-import mypackage.MyIO;
+import java.io.PrintWriter;
 
 public class Jogador {
     private int id;
@@ -14,6 +16,8 @@ public class Jogador {
     private int anoNascimento;
     private String cidadeNascimento;
     private String estadoNascimento;
+    static int comparacoes = 0;
+    static int movimentacoes = 0;
 
     // Construtor padrão da classe Jogador
     public Jogador() {
@@ -126,10 +130,12 @@ public class Jogador {
     }
 
     // Método para imprimir os dados do jogador
-    public void imprimir() {
-        MyIO.print("[" + id + " ## " + nome + " ## " + altura + " ## " + peso + " ## " + anoNascimento + " ## "
-                + universidade + " ## " + cidadeNascimento + " ## " + estadoNascimento + "]");
-        MyIO.println("");
+    public static void imprimir(ArrayList<Jogador> listaJogadores) {
+        for(int i = 0; i < listaJogadores.size(); i++) {
+            MyIO.println("[" + listaJogadores.get(i).getId() + " ## " + listaJogadores.get(i).getNome() + " ## " + listaJogadores.get(i).getAltura() 
+            + " ## " + listaJogadores.get(i).getPeso() + " ## " + listaJogadores.get(i).getAnoNasc() + " ## " + listaJogadores.get(i).getUniversidade() 
+            + " ## " + listaJogadores.get(i).getCidadeNasc() + " ## " + listaJogadores.get(i).getEstadoNasc() + "]");
+        }
     }
 
     // Método para ler dados de um arquivo CSV e preencher um mapa de jogadores
@@ -190,6 +196,89 @@ public class Jogador {
         }
     }
 
+    public static void ordenacaoNome(ArrayList<Jogador> listaJogadores) {
+        quicksortNomes(listaJogadores, 0, listaJogadores.size() - 1);
+    }
+
+    public static void quicksortNomes(ArrayList<Jogador> listaJogadores, int esq, int dir) {
+        int i = esq, j = dir;
+        Jogador pivo = listaJogadores.get((dir+esq)/2);
+        while(i <= j) {
+            while(listaJogadores.get(i).getNome().compareTo(pivo.getNome()) < 0) i++;
+            while(listaJogadores.get(j).getNome().compareTo(pivo.getNome()) > 0) j--;
+            if(i <= j) {
+                swap(listaJogadores, i, j);
+                i++;
+                j--;
+            }
+        }
+        if(esq < j) quicksortNomes(listaJogadores, esq, j);
+        if(i < dir) quicksortNomes(listaJogadores, i, dir);
+    }
+
+    public static void countingsort(ArrayList<Jogador> listaJogadores) {
+        int n = listaJogadores.size();
+
+        int maxAltura = getMaior(listaJogadores).getAltura();
+
+        int[] count = new int[maxAltura + 1];
+        Jogador[] ordenado = new Jogador[n];
+
+        
+        for(int i = 0; i < count.length; count[i] = 0, i++);
+
+        for(int i = 0; i < n; count[listaJogadores.get(i).getAltura()]++, i++);
+
+        for(int i = 1; i < count.length; count[i] += count[i - 1], i++);
+
+        for(int i = n - 1; i >= 0; i--) {
+            Jogador jogadorAtual = listaJogadores.get(i);
+            int pos = count[jogadorAtual.getAltura()] - 1;
+
+            
+            ordenado[pos] = jogadorAtual;
+            movimentacoes++;
+            count[jogadorAtual.getAltura()]--;
+        }
+
+        for(int i = 0; i < n; i++) {
+            listaJogadores.set(i, ordenado[i]);
+        }
+
+
+    }
+
+    public static Jogador getMaior(ArrayList<Jogador> listaJogadores) {
+        Jogador maior = listaJogadores.get(0);
+        for(int i = 0; i < listaJogadores.size(); i++) {
+            comparacoes++;
+            if(maior.getAltura() < listaJogadores.get(i).getAltura()) {
+                maior = listaJogadores.get(i);
+            }
+        }
+        return maior;
+    }
+    
+    // Método Swap que troca a posição de dois jogadores na lista.
+    public static void swap(ArrayList<Jogador> listaJogadores, int index1, int index2) {
+        Jogador temp = listaJogadores.get(index1);
+        listaJogadores.set(index1, listaJogadores.get(index2));
+        listaJogadores.set(index2, temp);
+        movimentacoes += 2;
+    }
+
+    // Método para criar o arquivo de registro de log.
+    public static void registroDeLog(String matricula, long tempoExecucao) {
+        try (FileWriter fw = new FileWriter(matricula + "_countingsort.txt");
+             PrintWriter pw = new PrintWriter(fw)) {
+            pw.println(matricula + "\t" + comparacoes + "\t" + movimentacoes + "\t" + tempoExecucao);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    
+
     // Método para comparar duas strings e verificar se são iguais.
     public static boolean equalStrings(String str_1, String str_2) {
         if(str_1.length() != str_2.length()) {
@@ -207,18 +296,28 @@ public class Jogador {
     
     // Main
     public static void main(String[] args) {
+        Map<Integer, Jogador> jogadores = new HashMap<>();
+        ArrayList<Jogador> listaJogadores = new ArrayList<>();
+        Jogador jogador = new Jogador();
+        jogador.ler("/tmp/players.csv", jogadores);
+        
         String entrada;
         do{
             entrada = MyIO.readLine();
             if(!equalStrings(entrada, "FIM")) {
-                Map<Integer, Jogador> jogadores = new HashMap<>();
-                Jogador jogador = new Jogador();
-                jogador.ler("/tmp/players.csv", jogadores);
                 int idBusca = Integer.parseInt(entrada);
                 Jogador jogadorId = jogadores.get(idBusca);
-                jogadorId.imprimir();
+                listaJogadores.add(jogadorId);
             }
         }while(!equalStrings(entrada, "FIM"));
+
+        ordenacaoNome(listaJogadores);
+        long tempoInicio = System.currentTimeMillis();
+        countingsort(listaJogadores);
+        long tempoFinal = System.currentTimeMillis();
+        long tempoTotal = tempoFinal - tempoInicio;
+        registroDeLog("800854", tempoTotal);
+        imprimir(listaJogadores);
 
     }
 

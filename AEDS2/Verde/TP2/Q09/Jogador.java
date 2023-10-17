@@ -6,7 +6,6 @@ import java.io.FileWriter;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import mypackage.MyIO;
 
 public class Jogador {
     private int id;

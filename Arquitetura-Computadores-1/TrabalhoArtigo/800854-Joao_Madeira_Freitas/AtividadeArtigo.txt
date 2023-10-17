@@ -1,0 +1,79 @@
+João Madeira Carneiro Braga de Freitas
+Matrícula: 800854
+
+1) O artigo "A CPLD-based safety concept for industrial applications" dos autores Gerhard Grießnig, Roland Mader, Christian Steger e Reinhold Weiß pode se relacionar com o 
+artigo "CPLD (Dispositivo Complexo de Lógica Programação aplicado em automação industrial)". Ambos os artigos evidenciam a versatilidade e aplicabilidade dos CPLDs na automação 
+industrial, mas com focos diferentes. O primeiro apresenta um conceito de segurança baseado em CPLD para aplicações industriais, já no segundo o foco está no uso do CPLD para 
+desenvolver um controlador lógico eficiente e de baixo custo para automação de uma planta didática que simula um processo industrial.
+
+2)
+    Artigo: CPLD (Dispositivo Complexo de Lógica Programação aplicado em automação industrial):
+        Freitas, T. T., Pasqualinoto, T. L., & Leão, J. C. (2005). O CPLD (Dispositivo Complexo de Lógica Programação aplicado em automação industrial. Trabalho apresentado na Feira 
+        SENAI Paulista de Inovação Tecnológica - INOVASENAI 2005, categoria Equipamento. Realizado pelos alunos do curso técnico em “Eletrônica-Automação da Manufatura” turma 2004/2005 
+        do Centro de Treinamento SENAI/Lençóis Paulista-SP.
+    
+3)
+- ASICs, são circuitos integrados projetados para um propósito específico, ao contrário dos CPLDs e FPGAs que são programáveis e reconfiguráveis pelo usuário. 
+  Eles se  caracterizam principalmente pela necessidade de um processo de fabricação especial, que reque mascaras especiais para o projeto.
+
+- ASSPs, é uma categoria de semicondutores que se situa entre os ASICs e os dispositivos genéricos. Eles se caracterizam por oferecer um meio-termo entre a flexibilidade e a eficiência.
+  Os ASSPs são uma escolha popular para muitas aplicações onde a economia de escala pode ser realizada, e onde as necessidades de desempenho e funcionalidade são bem compreendidas e 
+  relativamente estáveis ao longo do tempo.
+
+- SPLDs, são circuitos integrados que os designers podem configurar para implementar funções lógicas digitais básicas. Eles se caracterizam principalmente pela simplicidade 
+  e baixo custo. Eles são comumente usados em aplicações que necessitam de controle lógico simples, como controle de display LED, decodificação de endereços, ou funções 
+  de controle básicas.
+
+- CPLDs, são circuitos integrados que os designers podem configurar para executar funções lógicas mais complexas, ao contrário dos SPLDs que são destinados a operações 
+  lógicas mais simples e básicas. Eles se caracterizam principalmente por sua complexidade e configurabilidade. Além disso, outras caracteristicas que podem ser citadas 
+  são: Desempenho, Densidade de Porta e Baixo Consumo de Energia.
+
+- SOCs, são circuitos integrados que incorporam todos os componentes de um sistema computacional ou eletrônico em um único chip. Eles são projetados para executar funções 
+  específicas e, muitas vezes, contêm um processador central (CPU), memória, unidades de entrada/saída, e outros componentes necessários para um sistema funcional.
+  Eles se caracterizam principalmente por sua integração e eficiência. Além disso, são muito compactos, possuem conectividade, como Wifi e Bluetooth.
+
+- FPGAs, são circuitos integrados que podem ser configurados pelo usuário após a fabricação para executar diversas funções lógicas. Eles são caracterizados principalmente peka
+  sua reconfigurabilidade, capacidade de serem reprogramados para diferentes aplicações, e pela sua flexibilidade. Além disso, o desempenho desses circuitos podem ser muito altos
+  e são utilizados em diversas aplicações, incluindo processamento de sinais, sistemas embarcados, automação industrial, e muitas outras áreas que requerem flexibilidade e desempenho.
+
+4)
+| Característica              | PROM                                                    | PLA                                                     | PAL                                                      |
+|-----------------------------|---------------------------------------------------------|---------------------------------------------------------|----------------------------------------------------------|
+| **Natureza da Programação** | Memória somente de leitura programável.                 | Array lógico programável.                               | Array lógico programável.                                |
+| **Complexidade**            | Simples, armazena dados fixos após a programação.       | Média, permite implementação de funções lógicas.        | Média, permite implementação de funções lógicas.         |
+| **Reprogramabilidade**      | Geralmente uma vez programável (OTP).                   | Reprogramável.                                          | Geralmente reprogramável.                                |
+| **Flexibilidade**           | Baixa, serve apenas para armazenamento de dados.        | Alta, pode implementar várias funções lógicas.          | Alta, pode implementar várias funções lógicas.           |
+| **Desempenho**              | Rápido acesso aos dados armazenados.                    | Depende da complexidade do design lógico.               | Depende da complexidade do design lógico.                |
+| **Aplicações Típicas**      | Armazenamento de firmware ou dados de configuração.     | Implementação de funções lógicas personalizadas.        | Implementação de funções lógicas personalizadas.         |
+| **Densidade de Portas**     | N/A                                                     | Varia, geralmente menor que PAL e FPGA.                 | Varia, geralmente entre PLA e FPGA.                      |
+| **Facilidade de Uso**       | Fácil, programação direta.                              | Moderada, requer conhecimento de design lógico.         | Moderada, requer conhecimento de design lógico.          |
+
+
+
+5)
+
+| Característica           | CPLD                                                        | FPGA                                                            |
+|--------------------------|-------------------------------------------------------------|-----------------------------------------------------------------|
+| **Complexidade**         | Menos complexo com estrutura lógica mais simples.           | Mais complexo com alta densidade de portas lógicas.             |
+| **Configurabilidade**    | Reconfigurável, mas com capacidade limitada.                | Altamente reconfigurável com maior capacidade.                  |
+| **Desempenho**           | Geralmente mais rápido com tempos de propagação previsíveis.| Pode ser mais lento, mas mais adequado para operações paralelas.|
+| **Densidade de Portas**  | Menor densidade de portas lógicas.                          | Alta densidade de portas lógicas.                               |
+| **Memória**              | Utiliza memória não volátil para armazenar configurações.   | Geralmente utiliza memória volátil.                             |
+| **Facilidade de Uso**    | Considerado mais fácil para designers menos experientes.    | Pode ser mais desafiador devido à sua complexidade.             |
+| **Consumo de Energia**   | Menor consumo de energia.                                   | Maior consumo de energia.                                       |
+| **Custo**                | Geralmente menos caro.                                      | Pode ser mais caro, especialmente modelos de alta capacidade.   |
+| **Aplicações Típicas**   | Controle lógico, funções lógicas simples.                   | Processamento de sinais, sistemas embarcados, prototipagem.     |
+| **Desenvolvimento**      | Ciclo de desenvolvimento mais rápido.                       | Ciclo de desenvolvimento pode ser mais longo.                   |
+
+
+EXTRA:
+
+6)
+   Artigo 1 - Referência:
+      
+       MAXFIELD, C. Designus Maximus Unleashed!. Burlington: Elsevier, 2004.
+
+   Artigo 2 - Referência:
+      
+       KUON, I.; ROSE, J. Measuring the gap between FPGAs and ASICs. In: ACM/SIGDA 14TH INTERNATIONAL SYMPOSIUM ON FIELD PROGRAMMABLE GATE ARRAYS, 2006, Proceedings... p. 21-30.
+
