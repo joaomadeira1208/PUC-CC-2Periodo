@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import mypackage.MyIO;
 
 public class Jogador {
     private int id;
@@ -208,6 +209,8 @@ public class Jogador {
         for(int tamHeap = 2; tamHeap <= n; tamHeap++) {
             construir(tamHeap, listaJogadores);
         }
+
+
 
         int tamHeap = n;
         while(tamHeap > 1) {
