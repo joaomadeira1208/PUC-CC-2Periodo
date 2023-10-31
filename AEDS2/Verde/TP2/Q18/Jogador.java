@@ -1,11 +1,10 @@
 import java.util.Map;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 public class Jogador {
     private int id;
@@ -16,8 +15,6 @@ public class Jogador {
     private int anoNascimento;
     private String cidadeNascimento;
     private String estadoNascimento;
-    static int comparacoes = 0;
-    static int movimentacoes = 0;
 
     // Construtor padrão da classe Jogador
     public Jogador() {
@@ -131,10 +128,13 @@ public class Jogador {
 
     // Método para imprimir os dados do jogador
     public static void imprimir(ArrayList<Jogador> listaJogadores) {
-        for(int i = 0; i < listaJogadores.size(); i++) {
-            MyIO.println("[" + listaJogadores.get(i).getId() + " ## " + listaJogadores.get(i).getNome() + " ## " + listaJogadores.get(i).getAltura() 
-            + " ## " + listaJogadores.get(i).getPeso() + " ## " + listaJogadores.get(i).getAnoNasc() + " ## " + listaJogadores.get(i).getUniversidade() 
-            + " ## " + listaJogadores.get(i).getCidadeNasc() + " ## " + listaJogadores.get(i).getEstadoNasc() + "]");
+        for (int i = 0; i < listaJogadores.size(); i++) {
+            MyIO.println("[" + listaJogadores.get(i).getId() + " ## " + listaJogadores.get(i).getNome() + " ## "
+                    + listaJogadores.get(i).getAltura()
+                    + " ## " + listaJogadores.get(i).getPeso() + " ## " + listaJogadores.get(i).getAnoNasc() + " ## "
+                    + listaJogadores.get(i).getUniversidade()
+                    + " ## " + listaJogadores.get(i).getCidadeNasc() + " ## " + listaJogadores.get(i).getEstadoNasc()
+                    + "]");
         }
     }
 
@@ -144,21 +144,21 @@ public class Jogador {
                 BufferedReader bufferedReader = new BufferedReader(fileReader)) {
             String linha;
             boolean cabecalho = true;
-    
+
             while ((linha = bufferedReader.readLine()) != null) {
                 if (cabecalho) {
                     cabecalho = false;
-                    continue; 
+                    continue;
                 }
-    
+
                 String[] parts = new String[8];
                 int contador = 0;
                 int inicioCampo = 0;
-    
+
                 for (int i = 0; i < linha.length(); i++) {
                     if (linha.charAt(i) == ',') {
                         if (i == inicioCampo) {
-                            parts[contador] = "nao informado"; 
+                            parts[contador] = "nao informado";
                         } else {
                             parts[contador] = linha.substring(inicioCampo, i).trim();
                         }
@@ -166,18 +166,17 @@ public class Jogador {
                         inicioCampo = i + 1;
                     }
                 }
-                
+
                 if (linha.charAt(linha.length() - 1) == ',') {
-                    parts[contador] = "nao informado"; 
+                    parts[contador] = "nao informado";
                 } else {
                     parts[contador] = linha.substring(inicioCampo).trim();
                 }
-    
-                
+
                 if (contador != 7) {
                     continue;
                 }
-    
+
                 int id = Integer.parseInt(parts[0]);
                 String nome = parts[1];
                 int altura = Integer.parseInt(parts[2]);
@@ -186,7 +185,7 @@ public class Jogador {
                 int anoNascimento = Integer.parseInt(parts[5]);
                 String cidadeNascimento = parts[6];
                 String estadoNascimento = parts[7];
-    
+
                 Jogador jogador = new Jogador(id, nome, altura, peso, universidade, anoNascimento, cidadeNascimento,
                         estadoNascimento);
                 map.put(id, jogador);
@@ -196,175 +195,86 @@ public class Jogador {
         }
     }
 
-    // Método que ordena a lista de jogadores usando o algoritmo heapsort. A lista será ordenado de acordo com a altura, em casos de empate de acordo com o nome.
-    public static ArrayList<Jogador> heapsort(ArrayList<Jogador> listaJogadores) {
+    // Realiza o quicksort adaptado para encontrar o k-ésimo menor elemento na lista de jogadores.
+    public static void quicksort(ArrayList<Jogador> listaJogadores, int k) {
         int n = listaJogadores.size();
-        ArrayList<Jogador> temp = new ArrayList<>(n+1);
-        temp.add(null);
-        for(int i = 0; i < n; i++) {
-            temp.add(i+1, listaJogadores.get(i));
-        }
-        listaJogadores = temp;
-        for(int tamHeap = 2; tamHeap <= n; tamHeap++) {
-            construir(tamHeap, listaJogadores);
-        }
-
-
-
-        int tamHeap = n;
-        while(tamHeap > 1) {
-            swap(listaJogadores, 1, tamHeap--);
-            reconstruir(tamHeap, listaJogadores);
-        }
-
-        temp = listaJogadores;
-        listaJogadores = new ArrayList<>(n);
-        for(int i = 0; i < n; i++) {
-            listaJogadores.add(i, temp.get(i+1));
-        }
-        return listaJogadores;
-
+        quickSelect(listaJogadores, 0, n - 1, k);
     }
 
-    // Método construir para construir o heap a partir da lista de jogadores.
-    public static void construir(int tamHeap, ArrayList<Jogador> listaJogadores) {
-        int i = tamHeap;
-        while(i > 1) {
-            comparacoes += 2;
-            if(listaJogadores.get(i).getAltura() > listaJogadores.get(i/2).getAltura()) {
-                comparacoes--;
-                swap(listaJogadores, i, i/2);
-            }
-            else if(listaJogadores.get(i).getAltura() == listaJogadores.get(i/2).getAltura()) {
-                String nome1 = listaJogadores.get(i).getNome();
-                String nome2 = listaJogadores.get(i/2).getNome();
-                if(nome1.compareTo(nome2) > 0) {
-                    swap(listaJogadores, i, i/2);
-                }
-                else {
-                    break;
-                }
-            }
-            else {
-                break;
-            }
-            i/=2;
-        }
-    }
-
-    // Método reconstruir para reconstruir o heap a partir da lista de jogadores.
-    public static void reconstruir(int tamHeap, ArrayList<Jogador> listaJogadores) {
-        int i = 1;
-        while(i <= (tamHeap/2)) {
-            comparacoes += 2;
-            int filho = getMaiorFilho(i, tamHeap, listaJogadores);
-            if(listaJogadores.get(i).getAltura() < listaJogadores.get(filho).getAltura()) {
-                comparacoes--;
-                swap(listaJogadores, i, filho);
-                i = filho;
-            }
-            else if(listaJogadores.get(i).getAltura() == listaJogadores.get(filho).getAltura()) {
-                String nome1 = listaJogadores.get(i).getNome();
-                String nome2 = listaJogadores.get(filho).getNome();
-                if(nome1.compareTo(nome2) < 0) {
-                    swap(listaJogadores, i, filho);
-                    i = filho;
-                }
-                else {
-                    i = tamHeap;
-                }
-            }
-            else {
-                i = tamHeap;
+    // Executa a seleção rápida para encontrar o k-ésimo menor elemento na lista de jogadores.
+    public static void quickSelect(ArrayList<Jogador> listaJogadores, int esq, int dir, int k) {
+        if (esq < dir) {
+            int pivoIndex = partition(listaJogadores, esq, dir);
+            if (pivoIndex == k) {
+                return;
+            } else if (pivoIndex < k) {
+                quickSelect(listaJogadores, pivoIndex + 1, dir, k);
+            } else {
+                quickSelect(listaJogadores, esq, pivoIndex - 1, k);
             }
         }
     }
 
-    // Método getMaiorFilho para obter o índice do maior filho de um nó no heap.
-    public static int getMaiorFilho(int i, int tamHeap, ArrayList<Jogador> listaJogadores) {
-        int filho;
-        comparacoes += 2;
-        if(2*i == tamHeap || listaJogadores.get(2*i).getAltura() > listaJogadores.get(2*i + 1).getAltura()) {
-            comparacoes--;
-            if(2*i == tamHeap) {
-                comparacoes--;
-            }
-            filho = 2*i;
-        }
-        else if(listaJogadores.get(2*i).getAltura() == listaJogadores.get(2*i + 1).getAltura()) {
-            String nome1 = listaJogadores.get(2*i).getNome();
-            String nome2 = listaJogadores.get(2*i + 1).getNome();
-            if(nome1.compareTo(nome2) > 0) {
-                filho = 2*i;
-            }
-            else {
-                filho = 2*i + 1;
+    // Realiza a partição da lista de jogadores com base em critérios de comparação.
+    public static int partition(ArrayList<Jogador> listaJogadores, int esq, int dir) {
+        int i = esq;
+        Jogador pivo = listaJogadores.get(dir);
+        for (int j = esq; j < dir; j++) {
+            int comparacao = listaJogadores.get(j).getEstadoNasc().compareTo(pivo.getEstadoNasc());
+            if (comparacao < 0 || (comparacao == 0 && listaJogadores.get(j).getNome().compareTo(pivo.getNome()) < 0)) {
+                swap(listaJogadores, i, j);
+                i++;
             }
         }
-        else {
-            filho = 2*i + 1;
-        }
-        return filho;
+        swap(listaJogadores, i, dir);
+        return i;
     }
-    
+
+
     // Método Swap que troca a posição de dois jogadores na lista.
     public static void swap(ArrayList<Jogador> listaJogadores, int index1, int index2) {
         Jogador temp = listaJogadores.get(index1);
         listaJogadores.set(index1, listaJogadores.get(index2));
         listaJogadores.set(index2, temp);
-        movimentacoes += 2;
     }
-
-    // Método para criar o arquivo de registro de log.
-    public static void registroDeLog(String matricula, long tempoExecucao) {
-        try (FileWriter fw = new FileWriter(matricula + "_heapsort.txt");
-             PrintWriter pw = new PrintWriter(fw)) {
-            pw.println(matricula + "\t" + comparacoes + "\t" + movimentacoes + "\t" + tempoExecucao);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    
 
     // Método para comparar duas strings e verificar se são iguais.
     public static boolean equalStrings(String str_1, String str_2) {
-        if(str_1.length() != str_2.length()) {
+        if (str_1.length() != str_2.length()) {
             return false;
         }
 
-        for(int i = 0; i < str_1.length(); i++) {
-            if(str_1.charAt(i) != str_2.charAt(i)) {
+        for (int i = 0; i < str_1.length(); i++) {
+            if (str_1.charAt(i) != str_2.charAt(i)) {
                 return false;
             }
         }
 
         return true;
     }
-    
+
     // Main
     public static void main(String[] args) {
         Map<Integer, Jogador> jogadores = new HashMap<>();
         ArrayList<Jogador> listaJogadores = new ArrayList<>();
         Jogador jogador = new Jogador();
         jogador.ler("/tmp/players.csv", jogadores);
-        
+
         String entrada;
-        do{
+        do {
             entrada = MyIO.readLine();
-            if(!equalStrings(entrada, "FIM")) {
+            if (!equalStrings(entrada, "FIM")) {
                 int idBusca = Integer.parseInt(entrada);
                 Jogador jogadorId = jogadores.get(idBusca);
                 listaJogadores.add(jogadorId);
             }
-        }while(!equalStrings(entrada, "FIM"));
+        } while (!equalStrings(entrada, "FIM"));
 
-        long tempoInicio = System.currentTimeMillis();
-        listaJogadores = heapsort(listaJogadores);
-        long tempoFinal = System.currentTimeMillis();
-        long tempoTotal = tempoFinal - tempoInicio;
-        registroDeLog("800854", tempoTotal);
-        imprimir(listaJogadores);
+        quicksort(listaJogadores, 10);
+        ArrayList<Jogador> listaParcial = new ArrayList<>(listaJogadores.subList(0, 10));
+         // Ordene os k elementos por estado de nascimento e nome
+        listaParcial.sort(Comparator.comparing(Jogador::getEstadoNasc).thenComparing(Jogador::getNome));
+        imprimir(listaParcial);
 
     }
 

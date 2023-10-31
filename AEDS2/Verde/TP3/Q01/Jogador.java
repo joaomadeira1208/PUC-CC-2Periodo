@@ -2,10 +2,9 @@ import java.util.Map;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
+import mypackage.MyIO;
 
 public class Jogador {
     private int id;
@@ -16,8 +15,6 @@ public class Jogador {
     private int anoNascimento;
     private String cidadeNascimento;
     private String estadoNascimento;
-    static int comparacoes = 0;
-    static int movimentacoes = 0;
 
     // Construtor padrão da classe Jogador
     public Jogador() {
@@ -196,134 +193,7 @@ public class Jogador {
         }
     }
 
-    // Método que ordena a lista de jogadores usando o algoritmo heapsort. A lista será ordenado de acordo com a altura, em casos de empate de acordo com o nome.
-    public static ArrayList<Jogador> heapsort(ArrayList<Jogador> listaJogadores) {
-        int n = listaJogadores.size();
-        ArrayList<Jogador> temp = new ArrayList<>(n+1);
-        temp.add(null);
-        for(int i = 0; i < n; i++) {
-            temp.add(i+1, listaJogadores.get(i));
-        }
-        listaJogadores = temp;
-        for(int tamHeap = 2; tamHeap <= n; tamHeap++) {
-            construir(tamHeap, listaJogadores);
-        }
-
-
-
-        int tamHeap = n;
-        while(tamHeap > 1) {
-            swap(listaJogadores, 1, tamHeap--);
-            reconstruir(tamHeap, listaJogadores);
-        }
-
-        temp = listaJogadores;
-        listaJogadores = new ArrayList<>(n);
-        for(int i = 0; i < n; i++) {
-            listaJogadores.add(i, temp.get(i+1));
-        }
-        return listaJogadores;
-
-    }
-
-    // Método construir para construir o heap a partir da lista de jogadores.
-    public static void construir(int tamHeap, ArrayList<Jogador> listaJogadores) {
-        int i = tamHeap;
-        while(i > 1) {
-            comparacoes += 2;
-            if(listaJogadores.get(i).getAltura() > listaJogadores.get(i/2).getAltura()) {
-                comparacoes--;
-                swap(listaJogadores, i, i/2);
-            }
-            else if(listaJogadores.get(i).getAltura() == listaJogadores.get(i/2).getAltura()) {
-                String nome1 = listaJogadores.get(i).getNome();
-                String nome2 = listaJogadores.get(i/2).getNome();
-                if(nome1.compareTo(nome2) > 0) {
-                    swap(listaJogadores, i, i/2);
-                }
-                else {
-                    break;
-                }
-            }
-            else {
-                break;
-            }
-            i/=2;
-        }
-    }
-
-    // Método reconstruir para reconstruir o heap a partir da lista de jogadores.
-    public static void reconstruir(int tamHeap, ArrayList<Jogador> listaJogadores) {
-        int i = 1;
-        while(i <= (tamHeap/2)) {
-            comparacoes += 2;
-            int filho = getMaiorFilho(i, tamHeap, listaJogadores);
-            if(listaJogadores.get(i).getAltura() < listaJogadores.get(filho).getAltura()) {
-                comparacoes--;
-                swap(listaJogadores, i, filho);
-                i = filho;
-            }
-            else if(listaJogadores.get(i).getAltura() == listaJogadores.get(filho).getAltura()) {
-                String nome1 = listaJogadores.get(i).getNome();
-                String nome2 = listaJogadores.get(filho).getNome();
-                if(nome1.compareTo(nome2) < 0) {
-                    swap(listaJogadores, i, filho);
-                    i = filho;
-                }
-                else {
-                    i = tamHeap;
-                }
-            }
-            else {
-                i = tamHeap;
-            }
-        }
-    }
-
-    // Método getMaiorFilho para obter o índice do maior filho de um nó no heap.
-    public static int getMaiorFilho(int i, int tamHeap, ArrayList<Jogador> listaJogadores) {
-        int filho;
-        comparacoes += 2;
-        if(2*i == tamHeap || listaJogadores.get(2*i).getAltura() > listaJogadores.get(2*i + 1).getAltura()) {
-            comparacoes--;
-            if(2*i == tamHeap) {
-                comparacoes--;
-            }
-            filho = 2*i;
-        }
-        else if(listaJogadores.get(2*i).getAltura() == listaJogadores.get(2*i + 1).getAltura()) {
-            String nome1 = listaJogadores.get(2*i).getNome();
-            String nome2 = listaJogadores.get(2*i + 1).getNome();
-            if(nome1.compareTo(nome2) > 0) {
-                filho = 2*i;
-            }
-            else {
-                filho = 2*i + 1;
-            }
-        }
-        else {
-            filho = 2*i + 1;
-        }
-        return filho;
-    }
     
-    // Método Swap que troca a posição de dois jogadores na lista.
-    public static void swap(ArrayList<Jogador> listaJogadores, int index1, int index2) {
-        Jogador temp = listaJogadores.get(index1);
-        listaJogadores.set(index1, listaJogadores.get(index2));
-        listaJogadores.set(index2, temp);
-        movimentacoes += 2;
-    }
-
-    // Método para criar o arquivo de registro de log.
-    public static void registroDeLog(String matricula, long tempoExecucao) {
-        try (FileWriter fw = new FileWriter(matricula + "_heapsort.txt");
-             PrintWriter pw = new PrintWriter(fw)) {
-            pw.println(matricula + "\t" + comparacoes + "\t" + movimentacoes + "\t" + tempoExecucao);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     
 
@@ -346,6 +216,9 @@ public class Jogador {
     public static void main(String[] args) {
         Map<Integer, Jogador> jogadores = new HashMap<>();
         ArrayList<Jogador> listaJogadores = new ArrayList<>();
+        Jogador []jogadoresRemovidos = new Jogador[10];
+        int contadorRemocoes = 0;
+
         Jogador jogador = new Jogador();
         jogador.ler("/tmp/players.csv", jogadores);
         
@@ -359,13 +232,118 @@ public class Jogador {
             }
         }while(!equalStrings(entrada, "FIM"));
 
-        long tempoInicio = System.currentTimeMillis();
-        listaJogadores = heapsort(listaJogadores);
-        long tempoFinal = System.currentTimeMillis();
-        long tempoTotal = tempoFinal - tempoInicio;
-        registroDeLog("800854", tempoTotal);
-        imprimir(listaJogadores);
+        ListaSequencial listaSequencial = new ListaSequencial(listaJogadores);
+        String entrada2 = MyIO.readLine();
+        int quantidadeRegistros = Integer.parseInt(entrada2);
+        for(int i = 0; i < quantidadeRegistros; i++) {
+            entrada2 = MyIO.readLine();
+            String[] splits = entrada2.split(" ");
+            if(equalStrings(splits[0], "II")) {
+                int idJogador = Integer.parseInt(splits[1]);
+                Jogador jogadorId = jogadores.get(idJogador);
+                listaSequencial.inserirInicio(jogadorId);
+            }
+            else if(equalStrings(splits[0], "IF")) {
+                int idJogador = Integer.parseInt(splits[1]);
+                Jogador jogadorId = jogadores.get(idJogador);
+                listaSequencial.inserirFinal(jogadorId);
+            }
+            else if(equalStrings(splits[0], "I*")) {
+                int posicao = Integer.parseInt(splits[1]);
+                int idJogador = Integer.parseInt(splits[2]);
+                Jogador jogadorId = jogadores.get(idJogador);
+                listaSequencial.inserir(jogadorId, posicao);
+            }
+            else if(equalStrings(splits[0], "RI")) {
+                jogadoresRemovidos[contadorRemocoes] = listaSequencial.removerInicio();
+                contadorRemocoes++;
+            }
+            else if(equalStrings(splits[0], "RF")) {
+                jogadoresRemovidos[contadorRemocoes] = listaSequencial.removerFinal();
+                contadorRemocoes++;
+            }
+            else {
+                int posicao = Integer.parseInt(splits[1]);
+                jogadoresRemovidos[contadorRemocoes] = listaSequencial.remover(posicao);
+                contadorRemocoes++;
+            }
+        }
+
+        for(int i = 0; i < contadorRemocoes; i++) {
+            MyIO.println("(R) " + jogadoresRemovidos[i].getNome());
+        }
+
+        listaSequencial.imprimir();
+
+        
 
     }
 
+}
+
+class ListaSequencial {
+    private Jogador[] lista;
+    private int n;
+
+    public ListaSequencial(ArrayList <Jogador> listaJogadores) {
+        this.lista = new Jogador[1000];
+        for(int i = 0; i< listaJogadores.size();i++) {
+            this.lista[i] = listaJogadores.get(i);
+        }
+        this.n = listaJogadores.size();
+    }
+
+    public void inserir(Jogador jogador, int posicao) {
+        if(posicao < n) {
+            for(int i = n - 1; i > posicao - 1; i--) {
+                lista[i+1] = lista[i];
+            }
+            lista[posicao] = jogador;
+            n++;
+        }
+    }
+
+    public void inserirFinal(Jogador jogador) {
+        lista[n] = jogador;
+        n++;
+    }
+
+    public void inserirInicio(Jogador jogador) {
+        for(int i = n - 1; i >= 0; i--) {
+            lista[i+1] = lista[i]; 
+        }
+
+        lista[0] = jogador;
+        n++;
+    }
+
+    public Jogador remover(int posicao) {
+        Jogador resp = lista[posicao];
+        for(int i = posicao; i < n - 1; i++) {
+            lista[i] = lista[i+1]; 
+        }
+        n--;
+        return resp;
+    }
+
+    public Jogador removerInicio() {
+        Jogador resp = lista[0];
+        for(int i = 0; i < n - 1; i++) {
+            lista[i] = lista[i+1];
+        }
+        n--;
+        return resp;
+    }
+
+    public Jogador removerFinal() {
+        return lista[--n];
+    }
+
+    public void imprimir() {
+        for(int i = 0; i < n; i++) {
+            MyIO.println("[" + i + "]" + " ## " + lista[i].getNome() + " ## " + lista[i].getAltura() 
+            + " ## " + lista[i].getPeso() + " ## " + lista[i].getAnoNasc() + " ## " + lista[i].getUniversidade() 
+            + " ## " + lista[i].getCidadeNasc() + " ## " + lista[i].getEstadoNasc() + " ##");
+        }
+    }
 }

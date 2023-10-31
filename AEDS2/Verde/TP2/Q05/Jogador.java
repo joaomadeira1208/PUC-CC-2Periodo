@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import mypackage.MyIO;
+
 
 public class Jogador {
     private int id;
@@ -256,7 +256,7 @@ public class Jogador {
         Map<Integer, Jogador> jogadores = new HashMap<>();
         ArrayList<Jogador> listaJogadores = new ArrayList<>();
         Jogador jogador = new Jogador();
-        jogador.ler("tmp/players.csv", jogadores);
+        jogador.ler("/tmp/players.csv", jogadores);
 
         String entrada;
         do {
