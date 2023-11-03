@@ -1,9 +1,9 @@
 import java.util.Map;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
+import mypackage.MyIO;
 
 public class Jogador {
     private int id;
@@ -198,10 +198,9 @@ public class Jogador {
     }
 
     // Main
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         Map<Integer, Jogador> jogadores = new HashMap<>();
         Pilha pilha = new Pilha();
-        Pilha jogadoresRemovidos = new Pilha();
 
         Jogador jogador = new Jogador();
         jogador.ler("/tmp/players.csv", jogadores);
@@ -216,35 +215,27 @@ public class Jogador {
             }
         } while (!equalStrings(entrada, "FIM"));
 
-
         String entrada2 = MyIO.readLine();
         int quantidadeRegistros = Integer.parseInt(entrada2);
 
         for (int i = 0; i < quantidadeRegistros; i++) {
             entrada2 = MyIO.readLine();
             String[] splits = entrada2.split(" ");
-            if(equalStrings(splits[0], "I")) {
+            if (splits[0].equals("I")) {
                 int idBusca = Integer.parseInt(splits[1]);
-                Jogador jogadorId = jogadores.get(idBusca);
-                pilha.inserir(jogadorId);
-            }
-            else if(equalStrings(splits[0], "R")) {
+                Jogador jogadorInserir = jogadores.get(idBusca);
+                pilha.inserir(jogadorInserir);
+            } else if (splits[0].equals("R")) {
                 Jogador jogadorRemovido = pilha.remover();
                 MyIO.println("(R) " + jogadorRemovido.getNome());
-            }
-            else {
-                throw new Exception("Erro: Registro invalido");
+            } else {
+                throw new Exception("Erro: Tipo de registro invalido.");
             }
         }
         pilha.mostrar(pilha.topo, 0);
-    
-
     }
 
 }
-
-
-
 
 class Celula {
     Jogador jogador;
@@ -275,8 +266,8 @@ class Pilha {
         tmp = null;
     }
 
-    public Jogador remover() throws Exception{
-        if(topo == null) {
+    public Jogador remover() throws Exception {
+        if (topo == null) {
             throw new Exception("Erro: Pilha VAZIA");
         }
         Jogador resp = topo.jogador;
@@ -290,18 +281,20 @@ class Pilha {
     public void mostrar(Celula top, int contador) {
         Celula i = top;
         int tamanho = tamanho();
-        if(i.prox != null) {
+        if (i.prox != null) {
             mostrar(i.prox, contador + 1);
-            MyIO.println("[" + (tamanho - contador - 1) + "]" + " ## " + i.jogador.getNome() + " ## " + i.jogador.getAltura()
-                    + " ## " + i.jogador.getPeso() + " ## " + i.jogador.getAnoNasc() + " ## "
-                    + i.jogador.getUniversidade()
-                    + " ## " + i.jogador.getCidadeNasc() + " ## " + i.jogador.getEstadoNasc() + " ##");
+            MyIO.println(
+                    "[" + (tamanho - contador - 1) + "]" + " ## " + i.jogador.getNome() + " ## " + i.jogador.getAltura()
+                            + " ## " + i.jogador.getPeso() + " ## " + i.jogador.getAnoNasc() + " ## "
+                            + i.jogador.getUniversidade()
+                            + " ## " + i.jogador.getCidadeNasc() + " ## " + i.jogador.getEstadoNasc() + " ##");
         }
     }
 
     public int tamanho() {
         int tamanho = 0;
-        for(Celula i = topo; i.prox != null; i = i.prox, tamanho++);
+        for (Celula i = topo; i.prox != null; i = i.prox, tamanho++)
+            ;
         return tamanho;
     }
 }
