@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
-import mypackage.MyIO;
+import java.io.InputStreamReader;
 
 public class Jogador {
     private int id;
@@ -204,10 +204,10 @@ public class Jogador {
 
         Jogador jogador = new Jogador();
         jogador.ler("/tmp/players.csv", jogadores);
-
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String entrada;
         do {
-            entrada = MyIO.readLine();
+            entrada = br.readLine();
             if (!equalStrings(entrada, "FIM")) {
                 int idBusca = Integer.parseInt(entrada);
                 Jogador jogadorId = jogadores.get(idBusca);
@@ -215,11 +215,11 @@ public class Jogador {
             }
         } while (!equalStrings(entrada, "FIM"));
 
-        String entrada2 = MyIO.readLine();
+        String entrada2 = br.readLine();
         int quantidadeRegistros = Integer.parseInt(entrada2);
 
         for (int i = 0; i < quantidadeRegistros; i++) {
-            entrada2 = MyIO.readLine();
+            entrada2 = br.readLine();
             String[] splits = entrada2.split(" ");
             if (splits[0].equals("I")) {
                 int idBusca = Integer.parseInt(splits[1]);
