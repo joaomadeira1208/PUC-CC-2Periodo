@@ -160,8 +160,12 @@ void quicksortRec(Jogador* jogadores, int esq, int dir, int* comparacoes, int* m
             j--;
         }
     }
-    if(esq < j) quicksortRec(jogadores, esq, j, comparacoes, movimentacoes);
-    if(i < dir) quicksortRec(jogadores, i, dir, comparacoes, movimentacoes);
+    if(esq < j) {
+        quicksortRec(jogadores, esq, j, comparacoes, movimentacoes);
+    }
+    if(i < dir) {
+        quicksortRec(jogadores, i, dir, comparacoes, movimentacoes);
+    }
 }
 
 // Função para realizar a ordenação Quicksort em um array de Jogador.
