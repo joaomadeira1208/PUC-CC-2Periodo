@@ -39,5 +39,6 @@ public class Fila {
             System.out.println(resp);
             
         }
+        sc.close();
     }
 }
