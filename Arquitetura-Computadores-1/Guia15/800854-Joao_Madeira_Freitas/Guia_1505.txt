@@ -1,0 +1,23 @@
+// João Madeira Freitas
+// 800854
+
+ORG 2000H
+START: 
+LDA 2501H 
+ADD A
+ADD A 
+STA 2503H
+MOV B, A
+LDA 2502H
+MOV A, B 
+RRC  
+RRC  
+ADD A 
+
+STA 2503H
+
+HLT 
+
+ORG 2501H
+DB 0AH 
+DB 05H 

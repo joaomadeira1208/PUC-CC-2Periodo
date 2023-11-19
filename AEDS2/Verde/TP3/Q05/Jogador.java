@@ -322,8 +322,9 @@ class ListaFlexivel {
             inserirFinal(jogador);
         } else {
             Celula i = primeiro;
-            for (int j = 0; j < pos; i = i.prox, j++)
-                ;
+            for (int j = 0; j < pos;j++) {
+                i = i.prox;
+            }
             Celula tmp = new Celula(jogador);
             tmp.prox = i.prox;
             i.prox = tmp;
@@ -400,8 +401,7 @@ class ListaFlexivel {
 
     public int tamanho() {
         int tamanho = 0;
-        for (Celula i = primeiro; i != ultimo; i = i.prox, tamanho++)
-            ;
+        for (Celula i = primeiro; i != ultimo; i = i.prox, tamanho++);
         return tamanho;
     }
 }

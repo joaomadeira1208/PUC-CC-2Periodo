@@ -1,0 +1,49 @@
+// João Madeira Freitas
+// 800854
+
+ORG 2000H
+BEGIN 2000H
+
+LHLD 2501H
+LHLD 2503H
+
+MOV A, D
+ADD A
+MOV D, A
+MOV A, E
+ADC A
+MOV E, A
+
+MOV A, L
+SUB E
+MOV L, A
+MOV A, H
+SBB D
+MOV H, A
+
+
+MOV A, L
+ADD A
+MOV L, A
+MOV A, H
+ADC A
+MOV H, A
+MOV A, L
+ADD A
+MOV L, A
+MOV A, H
+ADC A
+MOV H, A
+
+
+SHLD 2505H
+
+HLT
+
+ORG 2501H
+DB 0AH ; dado01
+
+ORG 2503H
+DB 05H ; dado02
+
+; dado03 será armazenado em 2505H

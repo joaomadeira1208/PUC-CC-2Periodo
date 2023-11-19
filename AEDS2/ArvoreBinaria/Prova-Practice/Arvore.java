@@ -1,17 +1,11 @@
-
 public class Arvore {
     private No raiz;
 
     public Arvore() {
-        this.raiz = null;
+        raiz = null;
     }
 
-    public Arvore(No i) {
-        this.raiz = i;
-    }
-
-    // INSERÇÃO RETORNO DE REFERÊNCIA
-    public void inserir(int x) throws Exception {
+    public void inserir(int x) throws Exception{
         raiz = inserir(x, raiz);
     }
 
@@ -19,20 +13,19 @@ public class Arvore {
         if(i == null) {
             i = new No(x);
         }
-        else if(x < i.elemento) {
+        else if (x < i.elemento) {
             i.esq = inserir(x, i.esq);
         }
         else if(x > i.elemento) {
             i.dir = inserir(x, i.dir);
         }
         else {
-            throw new Exception("Erro: Numero repetido");
+            throw new Exception("Erro");
         }
         return i;
     }
 
 
-    // INSERIR PASSAGEM PAI
     public void inserirPai(int x) throws Exception{
         if(raiz == null) {
             raiz = new No(x);
@@ -44,7 +37,7 @@ public class Arvore {
             inserirPai(x, raiz.dir, raiz);
         }
         else {
-            throw new Exception("Erro: Número repetido");
+            throw new Exception("Erro");
         }
     }
 
@@ -64,11 +57,9 @@ public class Arvore {
             inserirPai(x, i.dir, i);
         }
         else {
-            throw new Exception("Erro: Número repetido");
+            throw new Exception("Erro");
         }
     }
-
-    // PESQUISA
 
     public boolean pesquisar(int x) {
         return pesquisar(x, raiz);
@@ -79,51 +70,42 @@ public class Arvore {
         if(i == null) {
             resp = false;
         }
-        else if(x == i.elemento) {
-            resp = true;
-        }
-        else if(x < i.elemento) {
-            resp = pesquisar(x, i.esq);
-        }
         else {
-            resp = pesquisar(x, i.dir);
+            if(x == i.elemento) {
+                resp = true;
+            }
+            else if(x < i.elemento) {
+                resp = pesquisar(x, i.esq);
+            }
+            else {
+                resp = pesquisar(x, i.dir);
+            }
         }
         return resp;
     }
 
-    // CAMINHAR CENTRAL
-
     public void caminharCentral(No i) {
         if(i != null) {
             caminharCentral(i.esq);
-            System.out.println(i.elemento + " ");
+            System.out.println(i.elemento);
             caminharCentral(i.dir);
         }
     }
 
-    // CAMINHAR PRÉ-FIXADO
-
-    public void caminharPos(No i) {
-        if(i != null) {
-            caminharPos(i.esq);
-            caminharPos(i.dir);
-            System.out.println(i.elemento + " ");
-        }
-    }
-
-    // CAMINHAR PÓS-FIXADO
     public void caminharPre(No i) {
         if(i != null) {
-            System.out.println(i.elemento + " ");
+            System.out.println(i.elemento);
             caminharPre(i.esq);
             caminharPre(i.dir);
         }
     }
 
-    // ALTURA
-
-    public int getAltura() {
-        return getAltura(raiz, 0);
+    public void caminharPos(No i) {
+        if(i != null) {
+            caminharPos(i.esq);
+            caminharPos(i.dir);
+            System.out.println(i.elemento);
+        }
     }
 
     public int getAltura(No i, int altura) {
@@ -131,49 +113,37 @@ public class Arvore {
             altura--;
         }
         else {
-            int alturaEsq = getAltura(i.esq, altura + 1);
-            int alturaDir = getAltura(i.dir, altura + 1);
+            int alturaEsq = getAltura(i, altura + 1);
+            int alturaDir = getAltura(i, altura + 1);
             altura = (alturaEsq > alturaDir) ? alturaEsq : alturaDir;
         }
         return altura;
     }
 
-
-    // SOMA ELEMENTOS
-
     public int soma(No i) {
-        int resp = 0;
+        int soma = 0;
         if(i != null) {
-            resp = i.elemento + soma(i.esq) + soma(i.dir);
+            soma = i.elemento + soma(i.esq) + soma(i.dir);
         }
-
-        return resp;
+        return soma;
     }
-
-    // NÚMERO DE ELEMENTOS PARES
 
     public int pares(No i) {
         int resp = 0;
         if(i != null) {
-            if(i.elemento % 2 == 0) {
-                resp = 1;
-            }
-            resp += pares(i.esq) + pares(i.dir);
+            resp = (i.elemento % 2 == 0) ? 1 : 0 + pares(i.esq) + pares(i.dir);
         }
-
         return resp;
     }
 
-    // ARVORES IGUAIS
-
-    public  static boolean igual(Arvore a, Arvore b) {
-        return igual(a.raiz, b.raiz);
+    public static boolean iguais(Arvore a, Arvore b) {
+        return iguais(a.raiz, b.raiz);
     }
 
-    public static boolean igual(No i, No j) {
+    public static boolean iguais(No i, No j) {
         boolean resp;
         if(i != null && j != null) {
-            resp = (i.elemento == j.elemento) && igual(i.esq, j.esq) && igual(i.dir, j.dir);
+            resp = (i.elemento == j.elemento)&& iguais(i.esq, j.esq) && iguais(i.dir, j.dir);
         }
         else if(i == null && j == null) {
             resp = true;
@@ -181,36 +151,17 @@ public class Arvore {
         else {
             resp = false;
         }
-
         return resp;
     }
 
-    public boolean divisivel(No i) {
+    public boolean div11(No i) {
         boolean resp;
         if(i != null) {
-            resp = (i.elemento % 11 == 0) || divisivel(i.esq) || divisivel(i.dir);
+            resp = (i.elemento % 11 == 0) || div11(i.esq) || div11(i.dir);
         }
         else {
             resp = false;
         }
         return resp;
     }
-
-    public static void main(String[] args) throws Exception{
-        Arvore a = new Arvore();
-        Arvore b = new Arvore();
-        a.inserir(4);
-        a.inserir(110);
-        a.inserir(100);
-        b.inserir(4);
-        b.inserir(3);
-        b.inserir(1001);
-        if(a.divisivel(a.raiz)) {
-            System.out.println("SIM");
-        }
-        else {
-            System.out.println("NAO");
-        }
-    }
-    
 }
