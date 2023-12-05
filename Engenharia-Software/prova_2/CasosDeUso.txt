@@ -1,0 +1,50 @@
+Comportamento do sistema: Como o sistema age e reage - ATIVIDADE OBSERVAVEL
+    -> Casos de uso
+    -> Descrição: Sistema, ambiente e relacionamento entre o sistema.
+
+Caso de uso:
+    O que é? 
+    -> Situação de uso de um serviço por parte de um usuário
+    -> Técnica utilizada na descrição de funcionalidades.
+    -> Interação do sistema com o seu ambiente externo.
+
+    Ator: Representa aqueles que interagem com o sistema (usuários ou outros sistemas)
+    Caso de uso: É uma sequencia de transações realizadas pelo sistema para atender uma solicitação do ator.
+
+    Template:
+
+        O software é utilizado para
+        << nome do caso de uso >>
+        pelo(s) << lista de ator(es) >>
+
+        O software é utilizado pelo(s)
+        << lista de ator(es) >> para
+        << nome do caso de uso >>
+    
+    Utilizado para COMUNICAÇÃO: Usuario final <-> Especialistas
+        Assegura um entendimento sobre os requisistos.
+    
+    Contribuem com a especificação dos REQUISITOS FUNCIONAIS DE UM SISTEMA.
+        CADA REQUISITO FUNCIONAL = PELO MENOS UM CASO DE uso
+        Acão junto com PROTÓTIPO pode ser um bom detalhamento dos requisitos 
+    
+    NÃO contribuem com a especificação dos REQUISITOS NÃO FUNCIONAIS DE UM SISTEMA.
+
+
+ATORES:
+    Ator é qualquer coisa que se comunica com o software e que é externa ao sistema.
+    Podem ser:
+        ▪ Pessoas que executam as principais funções do sistema;
+        ▪ Pessoas que executam funções secundárias;
+        ▪ Hardware externo utilizado pelo sistema;
+        ▪ Outros sistemas;
+        ▪ Sensores;
+        ▪ Fornecedor e/ou receptor de informações.
+    SISTEMA NÃO É ATOR DELE MESMO
+
+MODELAGEM CASOS DE USO:
+    Modelar o dialogo entre atores e o sistema por meio de fluxos de eventos completos
+    
+    Devem representar todas as formas de se utilizar o sistema
+    
+    É INICIADO POR UM ATOR PARA INVOCAR CERTA RE(AÇÃO) DO SISTEMA, REPRESENTADA POR UM VERBO NO INFINITIVO.

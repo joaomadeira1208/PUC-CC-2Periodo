@@ -1,0 +1,13 @@
+Mealy... "mean" ... in the middle / in transition
+Moore ... have "more" output / output happens when you get to state rather than in transitions
+
+Mealy:
+
+    q0: 1 - 0
+        0 - 2
+
+
+Moore:
+
+    q0 - 1 -> q1[output 0]
+       - 2 -> q2[output 5]
