@@ -1,0 +1,78 @@
+Atributos de Métricas de Software
+    -Simples e computavel
+    -Intuitivo e persuasivo
+    - Consistente e objetivo
+    - Consistente nas unidades
+
+Atributos Internos
+    - Podem ser medidos pela processo, produto ou recurso em si
+    - O comportamento não é tão importante
+
+Atributos Externos
+    - Podem ser medidos pela forma como o processo, produto ou
+    recurso se relaciona com seu ambiente
+    - Comportamente é importante
+
+TAMANHO (SIZE) - Atributo Interno
+
+Métricas de PRODUTO para modelo de requisito    
+    Métricas baseadas em função
+        - Utiliza pontos de função como fator de normalização ou para medir o "tamanho" de uma especificação
+        - Mede o tamanho e a complexidade de um sistema com base em suas funcionalidades
+    
+    Métricas de especialização
+        - Mede a qualidade 
+        - Utiliza a contagem de requisitos funcionais e não funcionais
+
+
+Métricas podem ser aplicadas ao PROCESSO de software para melhora-lo
+continuamente
+
+Métricas podem ser aplicadas ao PROJETO de software para ajudar nas
+estimativas, controle.
+
+
+Medição de qualidade:
+    -Correção, Manuntenção, Integridade, Usabilidade
+
+
+
+
+
+QUALIDADE DE SOFTWARE:
+
+Tipos de qualidade:
+    - Qualidade do PROJETO: abrange requisitos, especificações
+    e o projeto
+    - Qualidade da CONFORMIDADE: foco na Implementação
+
+Satisfação = prod compativel + boa qualidade + entrega a tempo
+
+
+Visão prática da qualidade:
+    - Visão TRANSCENDENTEAL: qualidade é algo que você reconhece
+    imediatamente, mas não pode ser definido explicitamente
+    
+    - Visão do USUÁRIO: qualidade em termos dos objetivos
+    específicos do usuário final.
+    
+    - Visão do DESENVOLVEDOR: qualidade em termos da especificação
+    original do produto.
+
+    - Visão do PRODUTO: qualidade vinculada ás caracteristicas
+    inerentes (funções e recursos) de um produto
+
+    - Visão baseada em VALOR: qualidade baseada em quanto um 
+    cliente está disposto a pagar pelo produto.
+
+Produto Útil
+    - Oferece conteúdo, funções e recursos que o usuário deseja
+    - Mas, tão importante, ele fornece esses ativos de maneira confiável e
+    livre de erros;
+    • Um produto útil sempre satisfaz os requisitos que foram
+    explicitamente declarados pelas partes interessadas;
+    • Além disso, ele satisfaz um conjunto de requisitos implícitos (por
+    exemplo, facilidade de uso) que são esperados de todo software de
+    alta qualidade.
+
+

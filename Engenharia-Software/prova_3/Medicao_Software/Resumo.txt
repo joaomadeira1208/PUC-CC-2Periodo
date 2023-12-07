@@ -1,0 +1,144 @@
+MEDIÇÃO DE SOFTWARE 
+
+Problemas gerais da medição:
+    - Alguns atributos de entidades nem sempre caracterizam medição
+    - Alguns atrubutos de entidades não são faceis de serem medidos
+    - A acurácia da medida depende do instrumento de medição e da forma que ele é utilizado
+    - A relatividade das escalas
+    - As análises de um conjunto de medições podem ter diferentes vieses
+
+
+Medição, métricas e indicadores
+    Medição: provê uma indicacão quantitativa de algum atributo de um produto ou processo.
+        - Indicação quantitativa:
+            * quantidade
+            * dimensao
+            * capacidade
+            * tamanho
+    Métrica: Métrica em software é uma unidade de medida que quantifica características específicas de um produto de software ou de seu processo de desenvolvimento.
+    Indicador: Métrica ou combinação de métrica que fornecem informações sobre o processo de software.
+
+Escopo 
+    • Estimativas de custo e esforço
+    • Coleção de dados;
+    • Qualidade de software
+    • Confiabilidade
+    • Segurança
+    • Métricas estruturais e de complexidade;
+    • Capabilidade de maturidade
+    • Gerenciamento por métricas;
+    • Avaliação de métricas e ferramentas.
+
+Principios
+    - Métrica deve ter propriedades matemáticas desejadas
+    - Cada métrica deve ser validada em uma ampla variedade de contextos antes de ser usada.
+    - Objetivos devem ser estabelecidos antes
+
+*Atributos de Métricas de Software*
+    - Simples e computável: 
+        - Deve ser relativamente fácil aprender como derivar a métrica
+        - O seu cálculo não deve exigir esforço ou tempo excessivo.
+    
+    - Empiricamente e intuitivamente persuasivo:
+        - Deve satisfazer as noções intuitivas do engenheiro sobre o atributo do produto
+    
+    - Consistente e objetivo:
+        - Deve sempre produzir resultados que não sejam ambíguos
+    
+    - Consistente no uso de unidades e dimensões:
+        - O cálculo da métrica deve usar medias que não levem a combinações bizarras de unidade
+    
+    - Linguagem de programação Independentemente
+        - Devem basear no modelo de análise, modelo de desenho ou na estrutura do próprio programa
+    
+    - Mecanismo eficaz para feedback de qualidade:
+        -Deve fornecer ao engenheiro informações que podem levar a um produto final de maior qualidade
+
+*Atributos Internos e Externos*
+    - Atributos internos:
+        - Podem ser medidos puramente em termos do (Y) produto, processo ou recurso em si.
+        - Pode ser medido examinando o produto, processo ou recurso por conta própria, sem considerar seu comportamento
+    - Atributos externos:
+        - Podem ser medidios APENAS em relacão a como o produto, processo ou recurso se relaciona com o seu ambiente.
+        - Comportamento do processo, produto ou recurso é importante, em vez da própria entidade
+
+*Medição de Atributos Internos - Size*
+    - Tamanho (Size) de uma entidade física é utilizada com facilidade para descreve-la em termos de comprimento, largura, ... (TAMBÉM É APLICADO PARA ENGENHARIA DE SOFTWARE)
+    - Utilizado para indicar outros atributos como esforço, produtividade e custo
+            Produtividade = Tamanho / esforço
+            Densidade de defeito = Quantidade de defeito / Tamanho
+
+*Tamanho de Código*
+    - Lines of Code (LOCs)
+    - Várias formas de se calcular as LOCs de um dado progrma.
+        - Deve levar em consideração a parte que NÃO é Código
+    - LOC poderia ser melhor qualificadada como: noncommented line or effective lines of Code
+        - Facilita a comparação de SISTEMAS e a ANÁLISE DE EVOLUÇÃO do software
+
+    - Total size (LOC) = NCLOC + CLOC (number of comment lines of program text)
+        - Podemos descobrir a densidade de comentários de um programa atrav´s da razão entre CLOC E LOC.
+    
+    - Scripts e protótipos são descartados
+    - Pode considerar number of executable statements ou number of delivered source instruction (DSI)
+
+*Métricas de Produto para o Modelo de Requisitos*
+    - Métricas baseadas em função:
+        - Usa o ponto de função como um fator de normalização ou como uma medida do "tamanho" da especificação
+        - Ponto de função: medida de software que visa quantificar o tamanho e a complexidade de um sistema de software com base em suas funcionalidades
+        - Contagem de pontos de função:
+            - número de entradas externas (EEs);
+            - número de saídas externas (SEs);
+            - número de consultas externas (CEs);
+            - número de arquivos lógicos internos (ALIs);
+            - número de arquivos de interface externos (AIEs).
+
+            - Deve-se considerar a complexidade (alta, média, baixa) para cada item contado, como um fator de peso.
+            - FP = Contagem Total x [0,65 + 0,01 x somamtorio(Fi)]
+
+
+        - Medir o tamanho e complexidade de um sistema
+        - Pode ser usada efetivamente como um meio para medir a funcionalidade fornecida por um sistema.
+
+    - Métricas de especialização:
+        - Usadas como uma indicação de qualidade, medindo o número de requisitos por tipo.
+        - Indicar a qualidade dos requisitos
+        - Nr = Nf + Nnf  ( numero de Requisitos funcionais e nao funcionais)
+        - Peculiaridade (ausência de ambiguidade)
+            - Q1 = Nui / nr
+            Nui = (número de requisitos para os quais todos os revisores tiveram interpretações idênticas)
+        - Totalidade
+            - Q2 = Nu / [Ni * Ns]
+            - Nu - n de requisitos funcionais únicos
+            - Ni - n de entradas definidas e implicitas pela especificação
+            - Ns - n estados especificados
+
+*Métricas de Projeto de Interface de Usuário*
+    - Elementos do layout e suas simples características podem ter um impacto significativo sobre a QUALIDADE do GUI
+    - Numero de caracteristicas, como palavras, links e graficos afetam a complexidade e a qualidade da interface
+    - Árbitro final: Entrada do usuário baseada em protótipos de GUI
+        - Satisfação subjetiva do usuário pode interferir no seu desempenho médio em uma tarefa que use a interface
+
+*Métricas de Projeto para WebApps e aplicativos móveis*
+    WEBAPPS
+    - MÉTRICAS DE INTERFACE: Adequação do layout, Complexidade do layout, Complexidade da região de layout, Complexidade de reconhecimento, Tempo de reconhecimento, etc
+    - MÉTRICAS DE ESTÉTICA: Número de palavras, Porcentagem de texto corpo, Contagem de links, Tamanho da página, etc
+    - MÉTRICAS DE CONTEÚDO: Foco na complexidade de conteúdo e no agrupamento de objetos de conteúdo organizado em páginas
+        - Espera de página, Complexidade da página, grafica, de audio, de video, de animação e de imagem escaneada
+    - MÉTRICAS DE NAVEGAÇÃO: Tratam da complexidade do fluxo de navegação, direcionadas para apenas aplicações estáticas
+        -  Complexidade de link de pagina, Conectividade, Densidade de Conectividade
+    
+    APLICATIVOS MOVEIS
+        - Quantidade de dowloads, Quantidade de usuários ativos, Origem dos usuários, Taxa de retenção dos usuários, Sessões diárias por usuários
+        - Quantidade de usuários ativos por dia / mes
+        - Distribuição, atribuição, abandono, custo, falhas
+    
+    
+    
+
+    
+
+
+    
+
+
+    
