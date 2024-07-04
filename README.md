@@ -1,6 +1,6 @@
 # PUC-CC-2Periodo
 
 ## Disciplinas
-- [Algoritmos e Estruturas de Dados II] (AEDS2 "AEDS2")
-- [Arquiterura de Computadores I] (Arquitetura-Computadores-1 "AC1")
-- [Engenharia de Software I] (Engenharia-Software "ES1")
+1. [Algoritmos e Estruturas de Dados II](AEDS2 "Algoritmos e Estruturas de Dados II")
+2. [Arquitetura de Computadores](Arquitetura-Computadores-1 "Arquitetura de Computadores")
+3. [Engenharia de Software](Engenharia-Software "Engenharia de Software")
