@@ -4,6 +4,8 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.io.FileWriter;
 
 public class Jogador {
     private int id;
@@ -218,6 +220,7 @@ public class Jogador {
         } while (!equalStrings(entrada, "FIM"));
 
         String entrada2;
+        long tempoInicio = System.currentTimeMillis();
 
         do {
             entrada2 = br.readLine();
@@ -232,7 +235,12 @@ public class Jogador {
             }
             }
         }while(!entrada2.equals("FIM"));
+        long tempoFinal = System.currentTimeMillis();
+        long tempoTotal = tempoFinal - tempoInicio;
+        arvore.registroDeLog("800854", tempoTotal);
     }
+        
+
 
 }
 
@@ -253,6 +261,7 @@ class No {
 
 class Arvore {
     No raiz;
+    int comparacoes = 0;
 
     public Arvore() {
         this.raiz = null;
@@ -294,18 +303,35 @@ class Arvore {
         if(i == null) {
             resp = false;
         }
-        else if(chave.equals(i.jogador.getNome())) {
-            resp = true;
-        }
-        else if(chave.compareTo(i.jogador.getNome()) < 0) {
-            System.out.print("esq ");
-            resp = pesquisar(chave, i.esq);
-        }
         else {
-            System.out.print("dir ");
-            resp = pesquisar(chave, i.dir);
+            comparacoes++;
+            if(chave.equals(i.jogador.getNome())) {
+                resp = true;
+            }
+        
+            else  {
+                comparacoes++;
+                if(chave.compareTo(i.jogador.getNome()) < 0) {
+                    System.out.print("esq ");
+                    resp = pesquisar(chave, i.esq);
+                }
+                else {
+                    System.out.print("dir ");
+                    resp = pesquisar(chave, i.dir);
+                }
+            }
         }
         return resp;
+    }
+
+
+    public void registroDeLog(String matricula, long tempoExecucao) {
+        try (FileWriter fw = new FileWriter(matricula + "_arvoreBinaria.txt");
+             PrintWriter pw = new PrintWriter(fw)) {
+            pw.println(matricula + "\t" + comparacoes + "\t" + tempoExecucao);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

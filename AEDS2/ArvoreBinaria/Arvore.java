@@ -196,6 +196,51 @@ public class Arvore {
         return resp;
     }
 
+    public void balancearEsq() {
+        raiz = balancearEsq(raiz);
+    }
+
+    public No balancearEsq(No i) {
+        No noDir = i.dir;
+        No noDirEsq = noDir.esq;
+        noDir.esq = i;
+        i.dir = nodirEsq;
+
+        return noDir;
+    }
+
+    public void balancearDir() {
+        raiz = balancearDir(raiz);
+    }
+
+    public No balancearDir(No i) {
+        No noEsq = i.esq;
+        No noEsqDir = noEsq.dir;
+
+        noEsq.dir = i;
+        i.esq = noEsqDir;
+
+        return noEsq;
+    }
+
+    public void balancearDirEsq() {
+        raiz = balancearDirEsq(raiz);
+    }
+
+    public No balancearDirEsq(No i) {
+        i.dir = balancearDir(i.dir);
+        return balancearEsq(i);
+    }
+
+    public void balancearEsqDir() {
+        raiz = balancearEsqDir(raiz);
+    }
+
+    public No balancearEsqDir(No i) {
+        i.esq = balancearEsq(i.esq);
+        return balancearDir(i);
+    }
+
     public static void main(String[] args) throws Exception{
         Arvore a = new Arvore();
         Arvore b = new Arvore();

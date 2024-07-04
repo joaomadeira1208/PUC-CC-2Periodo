@@ -4,6 +4,8 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.io.FileWriter;
 
 public class Jogador {
     private int id;
@@ -223,6 +225,7 @@ public class Jogador {
 
         String entrada2;
 
+        long tempoInicio = System.currentTimeMillis();
         do {
             entrada2 = br.readLine();
             if(!entrada2.equals("FIM")) {
@@ -236,6 +239,9 @@ public class Jogador {
                 }
             }
         }while(!entrada2.equals("FIM"));
+        long tempoFinal = System.currentTimeMillis();
+        long tempoTotal = tempoFinal - tempoInicio;
+        arvore.registroDeLog("800854", tempoTotal);
     }
 
 }
@@ -259,6 +265,7 @@ class No {
 
 class Arvore {
     No raiz;
+    int comparacoes = 0;
 
     public Arvore() {
         this.raiz = null;
@@ -342,9 +349,19 @@ class Arvore {
             System.out.print(direcao + " ");
         }
         if(i != null) {
+            comparacoes++;
             resp = ((nome.equals(i.nome)) || pesquisar(i.esq, nome, "ESQ")) || (pesquisar(i.dir, nome, "DIR"));
         }
         return resp;
+    }
+
+    public void registroDeLog(String matricula, long tempoExecucao) {
+        try (FileWriter fw = new FileWriter(matricula + "_arvoreArvore.txt");
+             PrintWriter pw = new PrintWriter(fw)) {
+            pw.println(matricula + "\t" + comparacoes + "\t" + tempoExecucao);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
